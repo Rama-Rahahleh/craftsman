@@ -621,3 +621,7 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+/*Added*/
+.sr-only {
+    z-index : 1;
+}

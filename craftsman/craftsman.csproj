@@ -259,6 +259,11 @@
     <Content Include="Asset\scss\bootstrap\scss\_type.scss" />
     <Content Include="Asset\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Asset\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="404.aspx" />
+    <Content Include="Team.aspx" />
+    <Content Include="Testimonial.aspx" />
+    <Content Include="Quote.aspx" />
+    <Content Include="Feature.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -358,6 +363,41 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Team.aspx.cs">
+      <DependentUpon>Team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Team.aspx.designer.cs">
+      <DependentUpon>Team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Testimonial.aspx.cs">
+      <DependentUpon>Testimonial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testimonial.aspx.designer.cs">
+      <DependentUpon>Testimonial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quote.aspx.cs">
+      <DependentUpon>Quote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quote.aspx.designer.cs">
+      <DependentUpon>Quote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feature.aspx.cs">
+      <DependentUpon>Feature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feature.aspx.designer.cs">
+      <DependentUpon>Feature.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
