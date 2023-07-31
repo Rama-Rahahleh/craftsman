@@ -259,6 +259,7 @@
     <Content Include="Asset\scss\bootstrap\scss\_type.scss" />
     <Content Include="Asset\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Asset\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="project.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -358,6 +359,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="project.aspx.cs">
+      <DependentUpon>project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="project.aspx.designer.cs">
+      <DependentUpon>project.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
