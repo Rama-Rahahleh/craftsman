@@ -54,3 +54,4 @@ C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.CopyComplete
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.dll
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.pdb
+C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.AssemblyReference.cache
