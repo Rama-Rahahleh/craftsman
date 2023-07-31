@@ -50,11 +50,6 @@ C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\roslyn\vbc.exe.config
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\roslyn\vbc.rsp
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\roslyn\VBCSCompiler.exe
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\System.Web.Optimization.xml
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\Newtonsoft.Json.xml
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\Antlr3.Runtime.pdb
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\Microsoft.AspNet.FriendlyUrls.xml
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.CoreCompileInputs.cache
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.CopyComplete
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.dll
