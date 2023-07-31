@@ -10,7 +10,7 @@
 
 namespace craftsman
 {
-    public partial class WebForm3
+    public partial class Testimonial
     {
     }
 }
