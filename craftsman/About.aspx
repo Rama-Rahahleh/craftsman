@@ -1,231 +1,190 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="craftsman.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
-
-
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-
-  background: #efd8c3;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-  width: 750px;
-  height: 460px;
-  border-radius: 10px;
-
-  background: #fff;
-}
-
-.left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-
-  background: url("https://i.postimg.cc/vmK4vkf0/neon-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.left img {
-  width: 100px;
-}
-
-.left h1 {
-  margin-top: 10px;
-  font-size: 3em;
-  font-weight: 100;
-  font-family: "Bebas Neue", sans-serif;
-  color: #fff;
-}
-
-.right {
-  margin: 20px auto;
-  padding: 10px;
-}
-
-.inputbox {
-  margin: 8px 0px;
-  width: 350px;
-  height: fit-content;
-}
-
-input {
-  margin-top: 4px;
-  padding: 5px;
-  width: 100%;
-  height: 28px;
-  text-indent: 9px;
-  border: none;
-  border-radius: 2px;
-
-  background: rgba(128, 128, 128, 0.2);
-}
-
-input:hover {
-  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.5);
-}
-
-.right .title h2 {
-  text-align: center;
-  font-size: 1.8em;
-  margin-bottom: 20px;
-}
-
-.inputbox label {
-  font-size: 1em;
-}
-
-input::placeholder {
-  text-indent: 10px;
-}
-
-.create {
-  display: flex;
-  justify-content: center;
-  width: 360px;
-}
-
-.create button {
-  margin-top: 5px;
-  width: 250px;
-  height: 35px;
-  border: none;
-  border-radius: 25px;
-
-  color: #fff;
-  background: #000;
-}
-
-.additional p {
-  margin-top: 5px;
-  font-size: 11px;
-  text-align: center;
-}
-
-.additional p span {
-  color: blue;
-}
-
-.additional p span:hover {
-  text-decoration: underline;
-}
-
-.or {
-  margin-top: 10px;
-  font-size: 1em;
-  text-align: center;
-}
-
-.sign {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 15px;
-}
-
-button {
-  width: 160px;
-  height: 35px;
-  padding: 5px;
-  border-radius: 25px;
-
-  background: none;
-  border: 2px solid #000;
-}
-/* Responsiveness:Start */
-@media screen and (max-width: 780px) {
-  .content {
-    flex-direction: column;
-    width: 400px;
-    height: fit-content;
-    margin: 20px auto;
-  }
-  .left {
-    height: 250px;
-    width: 100%;
-    border-radius: 0px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-}
-@media screen and (max-width: 425px) {
-  .content {
-    width: 100%;
-    margin: 0px;
-    border-radius: 0px;
-  }
-  .left {
-    width: 100%;
-    border-radius: 0px;
-  }
-}
-/* Responsiveness:End */
-
-    </style>
-<section>
-  <div class="content">
-
-    <div class="left">
-      <img src="https://i.postimg.cc/8CCmX23W/icon.png" alt="icon">
-      <h1>VIBELY</h1>
-    </div>
-
-    <div class="right">
-      <div class="title">
-        <h2>Welcome to Vibely</h2>
-      </div>
-      <div class="form">
-        <form>
-          <div class="inputbox">
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your Name" required>
-          </div>
-          <div class="inputbox">
-            <label>Email</label>
-            <input type="email" placeholder="Enter your Email ID" required>
-          </div>
-          <div class="inputbox">
-            <label>Password</label>
-            <input type="password" placeholder="Enter your Password" required>
-          </div>
-          <div class="create">
-            <button type="submit">Create Account</button>
-          </div>
-          <div class="additional">
-            <p>Already have an account ? <span>Log In</span></p>
-          </div>
-        </form>
-        <div class="or">
-          <h3>OR</h3>
-          <div class="sign">
-            <button>
-              <ion-icon name="logo-google"></ion-icon> <span>Sign Up with Google</span>
-            </button>
-            <button>
-              <ion-icon name="logo-github"></ion-icon> <span>Sign Up with GitHub</span>
-            </button>
-          </div>
+     <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
         </div>
-      </div>
     </div>
+    <!-- Page Header End -->
 
-  </div>
-</section>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Feature Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                            <i class="fa fa-user-check fa-2x text-primary"></i>
+                        </div>
+                        <h1 class="display-1 text-light mb-0">01</h1>
+                    </div>
+                    <h5>Creative Designers</h5>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                            <i class="fa fa-check fa-2x text-primary"></i>
+                        </div>
+                        <h1 class="display-1 text-light mb-0">02</h1>
+                    </div>
+                    <h5>Quality Products</h5>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                            <i class="fa fa-drafting-compass fa-2x text-primary"></i>
+                        </div>
+                        <h1 class="display-1 text-light mb-0">03</h1>
+                    </div>
+                    <h5>Free Consultation</h5>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+                            <i class="fa fa-headphones fa-2x text-primary"></i>
+                        </div>
+                        <h1 class="display-1 text-light mb-0">04</h1>
+                    </div>
+                    <h5>Customer Support</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature Start -->
+
+
+
+    <!-- About Start -->
+    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+        <div class="container about px-lg-0">
+            <div class="row g-0 mx-lg-0">
+                <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="Asset/img/about.jpg" style="object-fit: cover;" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-lg-5 pe-lg-0">
+                        <div class="section-title text-start">
+                            <h1 class="display-5 mb-4">About Us</h1>
+                        </div>
+                        <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
+                        <div class="row g-4 mb-4 pb-2">
+                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-users fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h2 class="text-primary mb-1" data-toggle="counter-up">1234</h2>
+                                        <p class="fw-medium mb-0">Happy Clients</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
+                                        <i class="fa fa-check fa-2x text-primary"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h2 class="text-primary mb-1" data-toggle="counter-up">1234</h2>
+                                        <p class="fw-medium mb-0">Projects Done</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="" class="btn btn-primary py-3 px-5">Explore More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="section-title text-center">
+                <h1 class="display-5 mb-5">Team Members</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="Asset/img/team-1.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="Asset/img/team-2.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="Asset/img/team-3.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item">
+                        <div class="overflow-hidden position-relative">
+                            <img class="img-fluid" src="Asset/img/team-4.jpg" alt="">
+                            <div class="team-social">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center border border-5 border-light border-top-0 p-4">
+                            <h5 class="mb-0">Full Name</h5>
+                            <small>Designation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
 </asp:Content>
