@@ -10,7 +10,7 @@
 
 namespace craftsman
 {
-    public partial class WebForm2
+    public partial class Team
     {
     }
 }
