@@ -9,7 +9,6 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-
     <title><%: "Sign in" %> - Craftman</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Favicon -->
@@ -107,7 +106,7 @@ span {
 	text-align: center;
 }
 
-input {
+.input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -169,9 +168,7 @@ input {
 		z-index: 5;
 	}
 }
-.Red{
-    background:red;
-}
+
 .overlay-container {
 	position: absolute;
 	top: 0;
@@ -281,6 +278,7 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }*/
+
 	</style>
 </head>
 <body>
@@ -321,67 +319,66 @@ footer a {
     </nav>
     <!-- Navbar End -->
     
-    <form runat="server">
-        <div class="container" id="containerDiv" runat="server">
-        
-            <div class="form-container sign-up-container">
-                <div class="form">
-                    <h1>Create Account</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span>or use your email for registration</span>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+   
+       <div class="container mt-4" id="container" >
+           <form runat="server">
+               <div class="form-container sign-up-container">
+                   <div class="form">
+                       <h1>Create Account</h1>
+                       <div class="social-container">
+                           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                           <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                       </div>
+                       <span>or use your email for registration</span>
+                       <asp:TextBox ID="TextBox1" runat="server" CssClass="input"></asp:TextBox>
+                       <asp:TextBox ID="TextBox2" runat="server" CssClass="input"></asp:TextBox>
+                       <asp:TextBox ID="TextBox3" runat="server" CssClass="input"></asp:TextBox>
+                       <asp:TextBox ID="TextBox4" runat="server" CssClass="input"></asp:TextBox>
 
-                    <%--<input type="text" placeholder="User" />
-			<input type="text" placeholder="Phone" />
-			<input type="email" placeholder="Email" />
+                      
+                       <asp:Button ID="Sign_UP" runat="server" Text="SignUp" CssClass="button"/>
+
+                   </div>
+               </div>
+               <div class="form-container sign-in-container">
+                   <div class="form">
+                       <h1>Sign in</h1>
+                       <div class="social-container">
+                           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                           <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                       </div>
+                       <span>or use your account</span>
+                       <asp:TextBox ID="TextBox5" runat="server" CssClass="input"></asp:TextBox>
+                       <asp:TextBox ID="TextBox6" runat="server" CssClass="input"></asp:TextBox>
+
+                       <asp:Button ID="Sign_In" runat="server" Text="Sign In" CssClass="button" />
+                       <%--<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />--%>
-                    <asp:Button ID="Sign_UP" runat="server" Text="SignUp" />
+                       <a href="#">Forgot your password?</a>
 
-                </div>
-            </div>
-            <div class="form-container sign-in-container">
-                <div class="form">
-                    <h1>Sign in</h1>
-                    <div class="social-container">
-                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span>or use your account</span>
-                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-
-                    <asp:Button ID="Sign_In" runat="server" Text="Sign In" />
-                    <%--<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />--%>
-                    <a href="#">Forgot your password?</a>
-
-                </div>
-            </div>
-            <div class="overlay-container">
+                   </div>
+               </div>
+           </form>
+          <div   class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-left">
                         <h1>Welcome Back!</h1>
                         <p>To keep connected with us please login with your personal info</p>
-                        <asp:Button ID="signIn" runat="server" Text="Sign In" CssClass="Button ghost" OnClientClick="SwitchToSignUp()" />
+                        <button id="signIn"  class="button ghost">Sign In</button>
+                       
                     </div>
                     <div class="overlay-panel overlay-right">
                         <h1>Hello, Friend!</h1>
                         <p>Enter your personal details and start journey with us</p>
-
-                        <asp:Button ID="signUp" runat="server" Text="Sign Up" CssClass="Button ghost" />
+                        <button id="signUp"  class=" button ghost" >Sign In</button>
+                      
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+    
 
     <!-- Back to Top     
         <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -404,29 +401,23 @@ footer a {
     <script src="Asset/js/main.js"></script>
 	<!-- Page JavaScript -->
 	<script>
-		
-		window.onload = function () {
+        $(document).ready(function () {
+            const signUpButton = document.getElementById("signUp");
+            const signInButton = document.getElementById("signIn");
 
-			const signUpButton = document.getElementById("<%= signUp.ClientID %>");
-			const signInButton = document.getElementById("<%= signIn.ClientID %>");
-			const container = document.getElementById("<%= containerDiv.ClientID%>");
+            const container = document.getElementById('container');
 
-            function handleButtonClick() {
-                container.classList.remove();
-                container.className.add("Red");
-				//alert("Button clicked!");
-			}
-            signUpButton.addEventListener("click", handleButtonClick);
-            signUpButton.addEventListener("click", handleButtonClick);
-		}
 
-		function SwitchToSignIn() {
-            container.classList.remove("right-panel-active");
-		}
-        function SwitchToSignUp() {
-            container.classList.add("right-panel-active");
-        }
-       
+            function handleSignUpClick() {                
+                container.classList.add("right-panel-active");        
+            }
+            function handleSignUINClick() {
+                container.classList.remove("right-panel-active");
+            }
+
+            signUpButton.addEventListener("click", handleSignUpClick);
+            signInButton.addEventListener("click", handleSignUINClick);
+        });
     </script>
   
 </body>

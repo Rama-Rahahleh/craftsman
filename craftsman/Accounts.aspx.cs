@@ -13,5 +13,17 @@ namespace craftsman
         {
 
         }
+
+        protected void signIn_Click(object sender, EventArgs e)
+        {
+            SignUpDiv.Visible = true;
+            SignINDIV.Visible = false;
+        }
+
+        protected void signUp_Click(object sender, EventArgs e)
+        {
+            SignUpDiv.Visible = false;
+            SignINDIV.Visible = true;
+        }
     }
 }
