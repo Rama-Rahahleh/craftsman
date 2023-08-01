@@ -273,12 +273,11 @@ footer a {
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your account</span>
-                <asp:TextBox ID="TextBox5" runat="server" CssClass="input"></asp:TextBox>
-                <asp:TextBox ID="TextBox6" runat="server" CssClass="input"></asp:TextBox>
+                <asp:TextBox ID="useremail" runat="server" CssClass="input"></asp:TextBox>
+                <asp:TextBox ID="userpassword" runat="server" CssClass="input"></asp:TextBox>
 
-                <asp:Button ID="Sign_In" runat="server" Text="Sign In" CssClass="button" />
-                <%--<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />--%>
+                <asp:Button ID="Sign_In" runat="server" Text="Sign In" CssClass="button" OnClick="Sign_In_Click" />
+               
                 <a href="#">Forgot your password?</a>
 
             </div>   
@@ -289,7 +288,7 @@ footer a {
                     <div class="overlay-panel overlay-right">
                         <h1>Welcome Back!</h1>
                         <p>To keep connected with us please login with your personal info</p>
-                        <asp:Button id="signIn" runat="server" CssClass="button ghost" OnClick="signIn_Click" Text="Sign Up"></asp:Button>
+                        <asp:Button id="signIn" runat="server" CssClass="button ghost" OnClick="signIn_Click"  Text="Sign Up"></asp:Button>
 						
                     </div>
                 </div>
@@ -307,13 +306,40 @@ footer a {
                         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span>or use your email for registration</span>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="input"></asp:TextBox>
-                    <asp:TextBox ID="TextBox2" runat="server" CssClass="input"></asp:TextBox>
-                    <asp:TextBox ID="TextBox3" runat="server" CssClass="input"></asp:TextBox>
-                    <asp:TextBox ID="TextBox4" runat="server" CssClass="input"></asp:TextBox>
+
+                    <asp:TextBox ID="email" runat="server" CssClass="input"></asp:TextBox>
+					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+						ErrorMessage="please enter email"
+						ControlToValidate="email" ValidationGroup="create"></asp:RequiredFieldValidator>
+
+					 <asp:RegularExpressionValidator id="RegularExpressionValidator1" runat ="server" 
+					  ErrorMessage="Please give Email Address! "
+					  ControlToValidate="email"
+					  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)"
+					  ForeColor="Red" >
+					 </asp:RegularExpressionValidator>
+                  
+					<asp:TextBox ID="phone" runat="server" CssClass="input"></asp:TextBox>
+						<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+						ErrorMessage="please enter phone"
+						ControlToValidate="phone" ValidationGroup="create"></asp:RequiredFieldValidator>
+                    
+					<asp:TextBox ID="username" runat="server" CssClass="input"></asp:TextBox>
+						<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
+						ErrorMessage="please enter user name"
+						ControlToValidate="username" ValidationGroup="create"></asp:RequiredFieldValidator>
+                
+					<asp:TextBox ID="password" runat="server" CssClass="input"></asp:TextBox>
+						<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+						ErrorMessage="please enter password"
+						ControlToValidate="password" ValidationGroup="create"></asp:RequiredFieldValidator>
 
 
-                    <asp:Button ID="Sign_UP" runat="server" Text="SignUp" CssClass="button" />
+                    <asp:Button ID="Sign_UP" runat="server" Text="SignUp" 
+						ValidationGroup="create"
+						CssClass="button" OnClick="Sign_UP_Click" />
+
+				
 
                 </div>
 
