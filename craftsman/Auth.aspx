@@ -169,7 +169,9 @@ input {
 		z-index: 5;
 	}
 }
-
+.Red{
+    background:red;
+}
 .overlay-container {
 	position: absolute;
 	top: 0;
@@ -320,7 +322,7 @@ footer a {
     <!-- Navbar End -->
     
     <form runat="server">
-        <div class="container" id="container" >
+        <div class="container" id="containerDiv" runat="server">
         
             <div class="form-container sign-up-container">
                 <div class="form">
@@ -407,10 +409,11 @@ footer a {
 
 			const signUpButton = document.getElementById("<%= signUp.ClientID %>");
 			const signInButton = document.getElementById("<%= signIn.ClientID %>");
-			const container = document.getElementById('container');
+			const container = document.getElementById("<%= containerDiv.ClientID%>");
 
-			function handleButtonClick() {
-                container.classList.remove("right-panel-active");
+            function handleButtonClick() {
+                container.classList.remove();
+                container.className.add("Red");
 				//alert("Button clicked!");
 			}
             signUpButton.addEventListener("click", handleButtonClick);
