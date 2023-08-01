@@ -13,7 +13,7 @@ namespace craftsman
 
     public partial class Auth
     {
-
+        
         /// <summary>
         /// TextBox1 control.
         /// </summary>

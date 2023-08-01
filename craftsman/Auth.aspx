@@ -414,6 +414,7 @@ footer a {
 				//alert("Button clicked!");
 			}
             signUpButton.addEventListener("click", handleButtonClick);
+            signUpButton.addEventListener("click", handleButtonClick);
 		}
 
 		function SwitchToSignIn() {
