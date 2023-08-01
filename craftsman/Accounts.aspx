@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Accounts.aspx.cs" Inherits="craftsman.Accounts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-							
+		
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
@@ -107,7 +107,7 @@ input {
 	z-index: 2;
 }
 
-.container .right-panel-active .sign-in-container {
+.container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
 
@@ -118,7 +118,7 @@ input {
 	z-index: 1;
 }
 
-.container .right-panel-active .sign-up-container {
+.container.right-panel-active .sign-up-container {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
@@ -148,13 +148,19 @@ input {
 	z-index: 100;
 }
 
-.container .right-panel-active .overlay-container{
+.container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
 
 .overlay {
+<<<<<<<< HEAD:craftsman/WebForm6.aspx
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, #1b1401, #AB7442);
+========
 
     background: linear-gradient(to right, #583e26, #ab7442);
+>>>>>>>> 667cea3aa11b7e03216ad9aeb8d05ea8eb1ebddf:craftsman/Accounts.aspx
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -167,7 +173,7 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
-.container .right-panel-active .overlay {
+.container.right-panel-active .overlay {
   	transform: translateX(50%);
 }
 
@@ -190,7 +196,7 @@ input {
 	transform: translateX(-20%);
 }
 
-.container .right-panel-active .overlay-left {
+.container.right-panel-active .overlay-left {
 	transform: translateX(0);
 }
 
@@ -203,9 +209,13 @@ input {
 	transform: translateX(20%);
 }
 
+<<<<<<<< HEAD:craftsman/WebForm6.aspx
+
+========
 .overlay h1 {
 	color:white;		
 }
+>>>>>>>> 667cea3aa11b7e03216ad9aeb8d05ea8eb1ebddf:craftsman/Accounts.aspx
 
 .social-container {
 	margin: 20px 0;
@@ -246,12 +256,11 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
-    </style>
-	<formview>
-	<div style="margin:100px"></div>
-<div class="container" id="container">
+	</style>
+
+<div class="container  mt-2" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<div>
 			<h1>Create Account</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -259,15 +268,15 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<asp:TextBox ID="TextBox1" runat="server">Username</asp:TextBox>
-			<asp:TextBox ID="TextBox2" runat="server">Phone</asp:TextBox>
-			<asp:TextBox ID="TextBox3" runat="server">Email</asp:TextBox>
-			<asp:TextBox ID="TextBox4" runat="server">Password</asp:TextBox>
+			<asp:TextBox ID="UserName" runat="server" laceholder="User Name"></asp:TextBox>
+		    <asp:TextBox ID="UserPhone" runat="server" laceholder="Phone Number"></asp:TextBox>
+		    <asp:TextBox ID="UserEmail" runat="server" laceholder=" Email"></asp:TextBox>
+		<asp:TextBox ID="UserPassword" runat="server" laceholder=" Password"></asp:TextBox>
 			<button>Sign Up</button>
-		</form>
+		</div>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<div>
 			<h1>Sign in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -275,10 +284,11 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-		
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
-		</form>
+		</div>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
@@ -290,12 +300,15 @@ footer a {
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign up</button>
+				<button class="ghost" id="signUp">Sign Up</button>
 			</div>
 		</div>
 	</div>
 </div>
-	<script >
+	
+	<!-- Page JavaScript -->
+	<script>
+		debugger
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -308,5 +321,4 @@ footer a {
             container.classList.remove("right-panel-active");
         });
     </script>
-		</formview>
 </asp:Content>
