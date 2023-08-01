@@ -316,7 +316,7 @@ footer a {
                 </div>
                 
             </div>
-            <a href="Contact.aspx" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Contact Us<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="Contact.aspx" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Support<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -335,7 +335,8 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
+			<input type="text" placeholder="User" />
+			<input type="text" placeholder="Phone" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<button>Sign Up</button>
