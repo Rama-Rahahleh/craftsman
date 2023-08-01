@@ -39,9 +39,7 @@
 		
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-	box-sizing: border-box;
-}
+
 
 h1 {
 	font-weight: bold;
@@ -64,7 +62,7 @@ span {
 	font-size: 12px;
 }
 
- form a {
+ .form a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
@@ -72,7 +70,7 @@ span {
 }
 
 
-button {
+.button {
 	border-radius: 20px;
 	border: 1px solid #AB7442;
     background-color: #AB7442;
@@ -85,20 +83,20 @@ button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+.button:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.button:focus {
 	outline: none;
 }
 
-button.ghost {
+.button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
 
-form {
+.form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -269,7 +267,7 @@ footer {
     z-index: 999;
 }
 
-footer p {
+/*footer p {
     margin: 10px 0;
 }
 
@@ -280,7 +278,7 @@ footer i {
 footer a {
     color: #3c97bf;
     text-decoration: none;
-}
+}*/
 	</style>
 </head>
 <body>
@@ -320,59 +318,68 @@ footer a {
         </div>
     </nav>
     <!-- Navbar End -->
+    
     <form runat="server">
-<!-- Spinner Start -->
+        <div class="container" id="container" >
+        
+            <div class="form-container sign-up-container">
+                <div class="form">
+                    <h1>Create Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
 
-          </form>
-	<div style="margin:100px"></div>
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="User" />
+                    <%--<input type="text" placeholder="User" />
 			<input type="text" placeholder="Phone" />
 			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
+			<input type="password" placeholder="Password" />--%>
+                    <asp:Button ID="Sign_UP" runat="server" Text="SignUp" />
 
+                </div>
+            </div>
+            <div class="form-container sign-in-container">
+                <div class="form">
+                    <h1>Sign in</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+
+                    <asp:Button ID="Sign_In" runat="server" Text="Sign In" />
+                    <%--<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />--%>
+                    <a href="#">Forgot your password?</a>
+
+                </div>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <asp:Button ID="signIn" runat="server" Text="Sign In" CssClass="Button ghost" OnClientClick="SwitchToSignUp()" />
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+
+                        <asp:Button ID="signUp" runat="server" Text="Sign Up" CssClass="Button ghost" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
     <!-- Back to Top     
         <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -395,17 +402,27 @@ footer a {
     <script src="Asset/js/main.js"></script>
 	<!-- Page JavaScript -->
 	<script>
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
+		
+		window.onload = function () {
 
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
+			const signUpButton = document.getElementById("<%= signUp.ClientID %>");
+			const signInButton = document.getElementById("<%= signIn.ClientID %>");
+			const container = document.getElementById('container');
 
-        signInButton.addEventListener('click', () => {
+			function handleButtonClick() {
+                container.classList.remove("right-panel-active");
+				//alert("Button clicked!");
+			}
+            signUpButton.addEventListener("click", handleButtonClick);
+		}
+
+		function SwitchToSignIn() {
             container.classList.remove("right-panel-active");
-        });
+		}
+        function SwitchToSignUp() {
+            container.classList.add("right-panel-active");
+        }
+       
     </script>
   
 </body>
