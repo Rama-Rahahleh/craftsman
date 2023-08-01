@@ -11,7 +11,7 @@ namespace craftsman
 {
 
 
-    public partial class Login
+    public partial class Auth
     {
     }
 }
