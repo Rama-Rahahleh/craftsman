@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace craftsman
 {
-    public partial class WebForm6 : System.Web.UI.Page
+    public partial class Signup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

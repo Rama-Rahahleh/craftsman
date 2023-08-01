@@ -1,6 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="craftsman.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="craftsman.Signup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
 
    <style>
        *{
@@ -126,6 +125,7 @@ select{
 	 text-align: center;
 }
 
+
     </style>
 
 		<div class="form">
@@ -136,13 +136,37 @@ select{
 				<input type="text"  name=""  placeholder="name"><br>
 				<input type="text"  name=""  placeholder="Email"><br>
 				<input type="password"  name=""  placeholder="password"><br>
+				<input type="text"  name=""  placeholder="age"><br>
+				<input type="text"  name=""  placeholder="address"><br>
+				<input type="text"  name=""  placeholder="phone"><br>
 				
-				
+				<br>
+				<select  name="countries" class="datalist">
+					<datalist id="countries">
+					<option class="selp" value="none">Select Your Country</option>
+					<option class="selq" value="India">India</option>
+					<option class="selq" value="Australia">Australia</option>
+					<option class="selq" value="new zealand">new zealand</option>
+					<option class="selq" value="England">England</option>
+					<option class="selq" value="America">America</option>
+					<option class="selq" value="China">China</option>
+				</datalist></select>
+				<select name="questioon">
+					<option class="selp" value="none">Select a secret question </option>
+					<option class="selq" value="1">what is your nickname ?</option>
+					<option class="selq" value="2">what is your best friend's name ?</option>
+					<option class="selq" value="3">what is your favourite game ?</option>
+				</select>
+				<input type="radio" name="gender" value="male" checked><span class="rad">Male</span>
+				<input type="radio" name="gender" value="female"> <span class="rad">Female</span>
+				<input type="radio" name="gender" value="other">
+				<span class="rad">Other</span>
 				<button>Sign Up</button>
-				<br/>
-				<a class="aclk" href="Signup.aspx">Don't have account ?</a>
+				<br />
+				<a class="aclk" href="Login.aspx">Already have account ?</a>
 			</form>
 		</div>
-
-
 </asp:Content>
+
+
+

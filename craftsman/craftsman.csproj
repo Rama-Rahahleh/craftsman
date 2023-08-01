@@ -228,6 +228,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Feature.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -319,11 +320,10 @@
     <Content Include="Asset\scss\bootstrap\scss\_variables.scss" />
     <Content Include="ERROR404.aspx" />
     <Content Include="project.aspx" />
+    <Content Include="Signup.aspx" />
     <Content Include="Team.aspx" />
     <Content Include="Testimonial.aspx" />
     <Content Include="Quote.aspx" />
-    <Content Include="Feature.aspx" />
-    <Content Include="WebForm6.aspx" />
     <Content Include="bin\craftsman.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
@@ -396,6 +396,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Feature.aspx.cs">
+      <DependentUpon>Feature.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Feature.aspx.designer.cs">
+      <DependentUpon>Feature.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -420,6 +427,13 @@
     </Compile>
     <Compile Include="service.aspx.designer.cs">
       <DependentUpon>service.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -469,20 +483,6 @@
     </Compile>
     <Compile Include="Quote.aspx.designer.cs">
       <DependentUpon>Quote.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Feature.aspx.cs">
-      <DependentUpon>Feature.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Feature.aspx.designer.cs">
-      <DependentUpon>Feature.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm6.aspx.cs">
-      <DependentUpon>WebForm6.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm6.aspx.designer.cs">
-      <DependentUpon>WebForm6.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
