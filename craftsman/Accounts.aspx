@@ -1,27 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm6.aspx.cs" Inherits="craftsman.WebForm6" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Login</title>
-	<style>
-		
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Accounts.aspx.cs" Inherits="craftsman.Accounts" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+							
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
 	box-sizing: border-box;
-}
-
-body {
-	background: #f6f5f7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
-	margin: -20px 0 50px;
 }
 
 h1 {
@@ -45,12 +29,13 @@ span {
 	font-size: 12px;
 }
 
-a {
+ form a {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
 }
+
 
 button {
 	border-radius: 20px;
@@ -122,7 +107,7 @@ input {
 	z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.container .right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
 
@@ -133,7 +118,7 @@ input {
 	z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.container .right-panel-active .sign-up-container {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
@@ -163,14 +148,13 @@ input {
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.container .right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-    background: linear-gradient(to right, #1b1401, #AB7442);
+
+    background: linear-gradient(to right, #583e26, #ab7442);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -183,7 +167,7 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.container .right-panel-active .overlay {
   	transform: translateX(50%);
 }
 
@@ -206,7 +190,7 @@ input {
 	transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.container .right-panel-active .overlay-left {
 	transform: translateX(0);
 }
 
@@ -219,7 +203,9 @@ input {
 	transform: translateX(20%);
 }
 
-
+.overlay h1 {
+	color:white;		
+}
 
 .social-container {
 	margin: 20px 0;
@@ -260,11 +246,9 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
-	</style>
-
-</head>
-<body>
-    <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+    </style>
+	<formview>
+	<div style="margin:100px"></div>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="#">
@@ -275,9 +259,10 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<asp:TextBox ID="TextBox1" runat="server">Username</asp:TextBox>
+			<asp:TextBox ID="TextBox2" runat="server">Phone</asp:TextBox>
+			<asp:TextBox ID="TextBox3" runat="server">Email</asp:TextBox>
+			<asp:TextBox ID="TextBox4" runat="server">Password</asp:TextBox>
 			<button>Sign Up</button>
 		</form>
 	</div>
@@ -290,8 +275,7 @@ footer a {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+		
 			<a href="#">Forgot your password?</a>
 			<button>Sign In</button>
 		</form>
@@ -306,21 +290,12 @@ footer a {
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<button class="ghost" id="signUp">Sign up</button>
 			</div>
 		</div>
 	</div>
 </div>
-
-<footer>
-	<p>
-		Created with <i class="fa fa-heart"></i> by
-		<a target="_blank" href="https://florin-pop.com">Florin Pop</a>
-		- Read how I created this and how you can join the challenge
-		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-	</p>
-</footer>
-	<script>
+	<script >
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -333,6 +308,5 @@ footer a {
             container.classList.remove("right-panel-active");
         });
     </script>
-</body>
-
-</html>
+		</formview>
+</asp:Content>

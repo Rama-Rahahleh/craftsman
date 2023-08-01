@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Feature.aspx.cs" Inherits="craftsman.Feature" %>
+﻿<%@ Page Title="Feature" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Feature.aspx.cs" Inherits="craftsman.Feature" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <!-- Feature Start -->
     <div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
