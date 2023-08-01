@@ -163,14 +163,13 @@ span {
 }
 
 .overlay {
-<<<<<<<< HEAD:craftsman/WebForm6.aspx
+
 	background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
     background: linear-gradient(to right, #1b1401, #AB7442);
-========
 
     background: linear-gradient(to right, #583e26, #ab7442);
->>>>>>>> 667cea3aa11b7e03216ad9aeb8d05ea8eb1ebddf:craftsman/Accounts.aspx
+
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -226,7 +225,6 @@ span {
 .overlay h1 {
 	color:white;		
 }
->>>>>>>> 667cea3aa11b7e03216ad9aeb8d05ea8eb1ebddf:craftsman/Accounts.aspx
 
 .social-container {
 	margin: 20px 0;
