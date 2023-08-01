@@ -13,7 +13,7 @@ namespace craftsman
 
     public partial class Auth
     {
-        
+
         /// <summary>
         /// TextBox1 control.
         /// </summary>
@@ -85,23 +85,5 @@ namespace craftsman
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Sign_In;
-
-        /// <summary>
-        /// signIn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button signIn;
-
-        /// <summary>
-        /// signUp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button signUp;
     }
 }
