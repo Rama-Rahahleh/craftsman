@@ -320,7 +320,7 @@ footer a {
     <!-- Navbar End -->
     
     <form runat="server">
-        <div class="container" id="container" >
+        <div class="container" id="container" runat="server" >
         
             <div class="form-container sign-up-container">
                 <div class="form">
@@ -368,13 +368,13 @@ footer a {
                     <div class="overlay-panel overlay-left">
                         <h1>Welcome Back!</h1>
                         <p>To keep connected with us please login with your personal info</p>
-                        <asp:Button ID="signIn" runat="server" Text="Sign In" CssClass="Button ghost" OnClientClick="SwitchToSignUp()" />
+                        <asp:Button ID="signIn" runat="server" Text="Sign In" CssClass="Button ghost" OnClientClick="" />
                     </div>
                     <div class="overlay-panel overlay-right">
                         <h1>Hello, Friend!</h1>
                         <p>Enter your personal details and start journey with us</p>
 
-                        <asp:Button ID="signUp" runat="server" Text="Sign Up" CssClass="Button ghost" />
+                        <asp:Button ID="signUp" runat="server" Text="Sign Up" CssClass="Button ghost" OnClientClick="SwitchToSignUp()" />
                     </div>
                 </div>
             </div>
@@ -401,26 +401,15 @@ footer a {
     <!-- Template Javascript -->
     <script src="Asset/js/main.js"></script>
 	<!-- Page JavaScript -->
-	<script>
-		
-		window.onload = function () {
-
-			const signUpButton = document.getElementById("<%= signUp.ClientID %>");
-			const signInButton = document.getElementById("<%= signIn.ClientID %>");
-			const container = document.getElementById('container');
-
-			function handleButtonClick() {
-                container.classList.remove("right-panel-active");
-				//alert("Button clicked!");
-			}
-            signUpButton.addEventListener("click", handleButtonClick);
-		}
+	<script type="text/javascript">
 
 		function SwitchToSignIn() {
             container.classList.remove("right-panel-active");
+            return false;
 		}
         function SwitchToSignUp() {
             container.classList.add("right-panel-active");
+            return false;
         }
        
     </script>
