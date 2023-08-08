@@ -303,6 +303,9 @@
                         ValidationGroup="sign"
                         OnClick="signIn_Click" Text="Sign Up"></asp:Button>
 
+                         <asp:Literal ID="Literal2" runat="server"  Visible="false"></asp:Literal>
+
+
                 </div>
             </div>
         </div>
@@ -368,6 +371,10 @@
                 <asp:Button ID="Sign_UP" runat="server" Text="Sign Up"
                     ValidationGroup="create"
                     CssClass="button" OnClick="Sign_UP_Click" />
+             
+                <asp:Literal ID="Literal1" runat="server"  Visible="false"></asp:Literal>
+            
+                
             </div>
             <div class="mt-3">
                 <asp:Literal ID="ltResult" runat="server"></asp:Literal>
