@@ -39,21 +39,23 @@ namespace craftsman
 
              using (SqlConnection con = new SqlConnection(ConnectionString))
              {
-                 using (SqlCommand com = new SqlCommand("Login", con))
+                 using (SqlCommand cmd = new SqlCommand("Login", con))
                  {
-                     com.CommandType = CommandType.StoredProcedure;
-                     com.Parameters.AddWithValue("@User_Email", email);
-                     com.Parameters.AddWithValue("@User_Password", password);
-                     com.Parameters.Add("@msg", SqlDbType.Int).Direction = ParameterDirection.Output;
-
+                     cmd.Connection = con;
+                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                     cmd.CommandText = "Login";
+                     cmd.Parameters.AddWithValue("@User_Email", email);
+                     cmd.Parameters.AddWithValue("@User_Password", password);
+                     cmd.Parameters.Add("@msg", SqlDbType.Int).Direction = ParameterDirection.Output;
+                     
                      con.Open();
-                     com.ExecuteNonQuery();
+                     cmd.ExecuteNonQuery();
 
 
                      int result;
-                     if (com.Parameters["@msg"].Value != DBNull.Value)
+                     if (cmd.Parameters["@msg"].Value != DBNull.Value)
                      {
-                         result = Convert.ToInt32(com.Parameters["@msg"].Value);
+                         result = Convert.ToInt32(cmd.Parameters["@msg"].Value);
                      }
                      else
                      {
@@ -65,7 +67,8 @@ namespace craftsman
                      {
                          // Valid credentials, proceed with login logic
                          ErrorMessageLabel1.Text = "Sign In Successful!";
-                     }
+                        
+                    }
                      else if (result == 0)
                      {
                          // Invalid credentials, show error message
@@ -84,13 +87,14 @@ namespace craftsman
 
         protected void Sign_UP_Click(object sender, EventArgs e)
         {
+
             if (Page.IsValid)
             {
                 try
                 {
                     using (SqlConnection con = new SqlConnection(ConnectionString))
                     {
-                        using (SqlCommand com = new SqlCommand())
+                        using (SqlCommand com = new SqlCommand("CreateAccount",con))
                         {
                             
                             com.Connection = con;
@@ -109,13 +113,15 @@ namespace craftsman
                             if (result == 1)
                             {
                                 ErrorMessageLabel.Text = "Account Successfully created.";
+                                ErrorMessageLabel.Visible = true;
                             }
                             else if (result == -1)
                             {
                                 ErrorMessageLabel.Text = "Email already exists. Please use a different email address.";
+                                ErrorMessageLabel.Visible = true;
                             }
 
-                            ErrorMessageLabel.Visible = true; // Show the error message after processing
+                            // Show the error message after processing
 
                             con.Close();
                         }

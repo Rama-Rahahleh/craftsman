@@ -283,7 +283,7 @@
                     ValidationGroup="sign">
                 </asp:RegularExpressionValidator>
 
-                <asp:TextBox ID="userpassword" runat="server" CssClass="input" ValidationGroup="sign" placeholder="Enter your password"></asp:TextBox>
+                <asp:TextBox ID="userpassword" runat="server" CssClass="input" placeholder="Enter your password"></asp:TextBox>
 
                 <asp:Label ID="ErrorMessageLabel1" runat="server" ForeColor="Red" Disply="Dynamic" Text="" Visible="false"></asp:Label>
 
