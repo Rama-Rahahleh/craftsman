@@ -71,19 +71,12 @@ namespace craftsman
 
                         if (result == -1)
                         {
-                            Literal2.Visible = true;
-                            Literal2.Text = $"<p class='text-danger'>Invalid Email or Password.</p>";
-                            
-
+                            msg.InnerText= $"Invalid Email or Password.";
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                         }
                         else if (result == 0)
-                        {
-                            Literal2.Visible = true;
-                            Literal2.Text = $"<p class='text-danger'>Email is not Found .</p>";
-                            // Inject JavaScript to open the modal
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "openSucessRegister();", true);
-                        }
-                        
+                            msg.InnerText = $"Email is not Found";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                     }
                 }
                 con.Close();
@@ -118,13 +111,13 @@ namespace craftsman
                     {
                         
                         msg.InnerText = "Sign up successful!";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "ShowPopup();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                     }
                     else if (result == -1)
                     {
                         
                         msg.InnerText = "Can't accept email";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "ShowPopup();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                     }
 
 

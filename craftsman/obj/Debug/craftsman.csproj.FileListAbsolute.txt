@@ -168,4 +168,3 @@ C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.csp
 C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.dll
 C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.pdb
 C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.csproj.AssemblyReference.cache
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.AssemblyReference.cache

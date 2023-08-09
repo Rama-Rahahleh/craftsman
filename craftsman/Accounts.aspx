@@ -398,7 +398,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <p>Pop up Message should go here</p>
+        <p id="msg" runat="server"></p>
         <button type="button" class="btn btn-secondary close" data-dismiss="modal" >Ok</button>
       </div>
     </div>
@@ -406,10 +406,13 @@
 </div>
     <!-- Popup Model Script -->
   <script>
-      function openSucessRegister() {
+        
+      function OpenPopUp() {
+          
           $("#Popup").modal('show');
       }
   </script>
+
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </asp:Content>
