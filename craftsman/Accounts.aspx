@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Registration" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Accounts.aspx.cs" Inherits="craftsman.Accounts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
@@ -392,7 +394,7 @@
         </div>
         </div>
 
-        <div class="modal" role="dialog" id="SignUpModal">
+        <div class="modal" role="dialog" id="SignUpModal" data-backdrop="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -410,7 +412,10 @@
         function ShowPopup() {
             $('#SignUpModal').modal('show');
         }
+        ShowPopup();
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </asp:Content>

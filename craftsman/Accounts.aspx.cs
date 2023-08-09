@@ -82,6 +82,7 @@ namespace craftsman
                         
                     }
                 }
+                con.Close();
                 useremail.Text = string.Empty;
                 userpassword.Text = string.Empty;
             }
