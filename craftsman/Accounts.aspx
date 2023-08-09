@@ -7,7 +7,7 @@
 
 h1 {
 	font-weight: bold;
-	margin: 0;
+	margin: -10px;
 }
 
 h2 {
@@ -75,7 +75,7 @@ span {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
-	margin: 8px 0;
+
 	width: 100%;
 }
 
@@ -315,7 +315,7 @@ footer a {
                     </div>
                     <span>or use your email for registration</span>
 
-                    <asp:TextBox ID="email" runat="server" CssClass="input"></asp:TextBox>
+                    <asp:TextBox ID="email" runat="server" CssClass="input" Text="Email"></asp:TextBox>
 					<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
 						ErrorMessage="please enter email"
 						ControlToValidate="email" ValidationGroup="create"></asp:RequiredFieldValidator>
@@ -327,17 +327,17 @@ footer a {
 					  ForeColor="Red" >
 					 </asp:RegularExpressionValidator>
                   
-					<asp:TextBox ID="phone" runat="server" CssClass="input"></asp:TextBox>
+					<asp:TextBox ID="phone" runat="server" CssClass="input" Text="Phone"></asp:TextBox>
 						<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
 						ErrorMessage="please enter phone"
 						ControlToValidate="phone" ValidationGroup="create"></asp:RequiredFieldValidator>
                     
-					<asp:TextBox ID="username" runat="server" CssClass="input"></asp:TextBox>
+					<asp:TextBox ID="username" runat="server" CssClass="input" Text="Username"></asp:TextBox>
 						<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server"
 						ErrorMessage="please enter user name"
 						ControlToValidate="username" ValidationGroup="create"></asp:RequiredFieldValidator>
                 
-					<asp:TextBox ID="password" runat="server" CssClass="input"></asp:TextBox>
+					<asp:TextBox ID="password" runat="server" CssClass="input" Text="Password"></asp:TextBox>
 						<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
 						ErrorMessage="please enter password"
 						ControlToValidate="password" ValidationGroup="create"></asp:RequiredFieldValidator>
