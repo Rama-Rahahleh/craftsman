@@ -372,7 +372,7 @@
                     ValidationGroup="create"
                     CssClass="button" OnClick="Sign_UP_Click" />
              
-                <asp:Literal ID="Literal1" runat="server"  Visible="false"></asp:Literal>
+                <asp:Literal ID="Literal1" runat="server" ></asp:Literal>
             
                 
             </div>

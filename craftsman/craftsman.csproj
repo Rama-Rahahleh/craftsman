@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Accounts.aspx" />
+    <Content Include="Admin\Control.aspx" />
     <Content Include="Asset\css\bootstrap.min.css" />
     <Content Include="Asset\css\style.css" />
     <Content Include="Asset\img\about.jpg" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Control.aspx.cs">
+      <DependentUpon>Control.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Control.aspx.designer.cs">
+      <DependentUpon>Control.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

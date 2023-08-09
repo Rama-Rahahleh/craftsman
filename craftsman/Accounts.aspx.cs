@@ -49,20 +49,38 @@ namespace craftsman
                     cmd.Parameters.Add("@msg", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     con.Open();
-                    cmd.ExecuteNonQuery();
-
-                    int result = Convert.ToInt32(cmd.Parameters["@msg"].Value);
-                    if (result == 1)
+                    SqlDataReader dr=cmd.ExecuteReader();
+                    if(dr.HasRows==true)
                     {
-                        Literal2.Text = "<p class='text-success'>Sign in successful!</p>";
-                    }
-                    else if (result == 0)
-                    {
-                        Literal2.Text = "<p class='text-danger'>Invalid Email or Password.</p>";
-                    }
-                    Literal2.Visible = true;
+                        while(dr.Read())
+                        {
+                            
+                            if (dr["USER_TYPE"].ToString() == "1") {
+                                Response.Redirect("Admin/Control.aspx");
+                            }
+                            else if (dr["USER_TYPE"].ToString() == "2")
+                            {
 
-                    con.Close();
+                            }
+                            
+                        }
+                    }else if (cmd.Parameters["@msg"].Value != DBNull.Value)
+                    {
+                        int result = Convert.ToInt32(cmd.Parameters["@msg"].Value);
+
+                        if (result == -1)
+                        {
+                            Literal2.Visible = true;
+                            Literal2.Text = $"<p class='text-danger'>Invalid Email or Password.</p>";
+
+                        }
+                        else if (result == 0)
+                        {
+                            Literal2.Visible = true;
+                            Literal2.Text = $"<p class='text-danger'>Email is not Found .</p>";
+                        }
+                        
+                    }
                 }
                 useremail.Text = string.Empty;
                 userpassword.Text = string.Empty;
