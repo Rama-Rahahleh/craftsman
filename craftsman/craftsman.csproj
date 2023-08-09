@@ -109,6 +109,7 @@
     <Content Include="Accounts.aspx" />
     <Content Include="Admin\Control.aspx" />
     <Content Include="Asset\css\bootstrap.min.css" />
+    <Content Include="Asset\css\SideMenu.css" />
     <Content Include="Asset\css\style.css" />
     <Content Include="Asset\img\about.jpg" />
     <Content Include="Asset\img\carousel-1.jpg" />
@@ -338,6 +339,8 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Admin\AdminMaster.Master" />
+    <Content Include="Admin\AdminNested.master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -381,6 +384,20 @@
     </Compile>
     <Compile Include="Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminNested.master.cs">
+      <DependentUpon>AdminNested.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminNested.master.designer.cs">
+      <DependentUpon>AdminNested.master</DependentUpon>
     </Compile>
     <Compile Include="Admin\Control.aspx.cs">
       <DependentUpon>Control.aspx</DependentUpon>

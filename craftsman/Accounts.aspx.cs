@@ -56,7 +56,7 @@ namespace craftsman
                         {
                             
                             if (dr["USER_TYPE"].ToString() == "1") {
-                                Response.Redirect("Admin/Control.aspx");
+                                Response.Redirect("Admin/AccountControl.aspx");
                             }
                             else if (dr["USER_TYPE"].ToString() == "2")
                             {
