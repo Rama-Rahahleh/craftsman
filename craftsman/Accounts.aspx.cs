@@ -57,7 +57,7 @@ namespace craftsman
                         {
                             
                             if (dr["USER_TYPE"].ToString() == "1") {
-                                Response.Redirect("Admin/AccountControl.aspx");
+                                Response.Redirect("Admin/Control.aspx");
                             }
                             else if (dr["USER_TYPE"].ToString() == "2")
                             {
@@ -71,19 +71,12 @@ namespace craftsman
 
                         if (result == -1)
                         {
-                            Literal2.Visible = true;
-                            Literal2.Text = $"<p class='text-danger'>Invalid Email or Password.</p>";
-                            
-
+                            msg.InnerText= $"Invalid Email or Password.";
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                         }
                         else if (result == 0)
-                        {
-                            Literal2.Visible = true;
-                            Literal2.Text = $"<p class='text-danger'>Email is not Found .</p>";
-                            // Inject JavaScript to open the modal
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "openSucessRegister();", true);
-                        }
-                        
+                            msg.InnerText = $"Email is not Found";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                     }
                 }
                 con.Close();
@@ -110,6 +103,7 @@ namespace craftsman
                     com.Parameters.Add("@msg", SqlDbType.Int);
                     com.Parameters["@msg"].Direction = ParameterDirection.Output;
 
+
                     com.ExecuteNonQuery();
 
                     int result = Convert.ToInt32(com.Parameters["@msg"].Value);
@@ -117,13 +111,13 @@ namespace craftsman
                     {
                         
                         msg.InnerText = "Sign up successful!";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "Popup();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                     }
                     else if (result == -1)
                     {
                         
                         msg.InnerText = "Can't accept email";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "Popup();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                     }
 
 
