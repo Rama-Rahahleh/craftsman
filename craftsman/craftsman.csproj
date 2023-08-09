@@ -139,6 +139,7 @@
     <Content Include="Asset\img\testimonial-3.jpg" />
     <Content Include="Asset\img\testimonial-4.jpg" />
     <Content Include="Asset\js\main.js" />
+    <Content Include="Asset\js\SideMenu.js" />
     <Content Include="Asset\lib\animate\animate.css" />
     <Content Include="Asset\lib\animate\animate.min.css" />
     <Content Include="Asset\lib\counterup\counterup.min.js" />

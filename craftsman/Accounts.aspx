@@ -6,8 +6,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-
-
         h1 {
             font-weight: bold;
             margin: 0;

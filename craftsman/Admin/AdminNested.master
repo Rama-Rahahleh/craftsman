@@ -2,63 +2,139 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <asp:ContentPlaceHolder ID="head1" runat="server">
+       
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="../Asset/css/SideMenu.css" rel="stylesheet" />
-    <div class='dashboard'>
-        <div class="dashboard-nav">
-            <header>
-                <a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a><a href="#"
-                    class="brand-logo"><i
-                        class="fas fa-anchor"></i><span>Hreafy</span></a>
-            </header>
-            <nav class="dashboard-nav-list">
-                <a href="#" class="dashboard-nav-item"><i class="fas fa-home"></i>
-                    Home </a><a
-                        href="#" class="dashboard-nav-item active"><i class="fas fa-tachometer-alt"></i>dashboard
-                    </a><a
-                        href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i>Upload </a>
-                <div class='dashboard-nav-dropdown'>
-                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                        class="fas fa-photo-video"></i>Media </a>
-                    <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#"
-                            class="dashboard-nav-dropdown-item">All</a><a
-                                href="#" class="dashboard-nav-dropdown-item">Recent</a><a
-                                    href="#" class="dashboard-nav-dropdown-item">Images</a><a
-                                        href="#" class="dashboard-nav-dropdown-item">Video</a>
-                    </div>
+
+     <link href="../Asset/css/SideMenu.css" rel="stylesheet" />
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ 
+          <div class="page-wrapper chiller-theme toggled">
+             <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+                <i class="fas fa-bars"></i></a>
+            
+                
+          <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <div class="sidebar-brand">
+            <a href="#">pro sidebar</a>
+            <div id="close-sidebar"><i class="fas fa-times"></i></div>
+          </div>
+          <!-- sidebar-brand -->
+          <div class="sidebar-header">
+            <div class="user-pic" style="color:#fff;">
+              <i class="fa fa-user-circle fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="user-info">
+              <span class="user-name"> <strong>Joe Chien</strong></span>
+              <span class="user-role">Administrator</span>
+              <span class="user-status"><i class="fa fa-circle"></i> <span>Online</span></span>
+            </div>
+          </div>
+          <!-- sidebar-header -->
+          <div class="sidebar-search">
+            <div>
+              <div class="input-group">
+                <input type="text" class="form-control search-menu" placeholder="Search...">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
                 </div>
-                <div class='dashboard-nav-dropdown'>
-                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                        class="fas fa-users"></i>Users </a>
-                    <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#"
-                            class="dashboard-nav-dropdown-item">All</a><a
-                                href="#" class="dashboard-nav-dropdown-item">Subscribed</a><a
-                                    href="#"
-                                    class="dashboard-nav-dropdown-item">Non-subscribed</a><a
-                                        href="#" class="dashboard-nav-dropdown-item">Banned</a><a
-                                            href="#" class="dashboard-nav-dropdown-item">New</a>
-                    </div>
+              </div>
+            </div>
+          </div>
+          <!-- sidebar-search -->
+          <div class="sidebar-menu">
+            <ul>
+              <li class="header-menu"><span>General</span></li>
+              <li class="sidebar-dropdown">
+                <a href="#"><i class="fa fa-tachometer-alt"></i><span>Dashboard</span><span class="badge badge-pill badge-warning">New</span></a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li><a href="#">Dashboard 1 <span class="badge badge-pill badge-success">Pro</span></a></li>
+                    <li><a href="#">Dashboard 2</a></li>
+                    <li><a href="#">Dashboard 3</a></li>
+                  </ul>
                 </div>
-                <div class='dashboard-nav-dropdown'>
-                    <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i
-                        class="fas fa-money-check-alt"></i>Payments </a>
-                    <div class='dashboard-nav-dropdown-menu'>
-                        <a href="#"
-                            class="dashboard-nav-dropdown-item">All</a><a
-                                href="#" class="dashboard-nav-dropdown-item">Recent</a><a
-                                    href="#" class="dashboard-nav-dropdown-item"> Projections</a>
-                    </div>
+              </li>
+              <!-- Dashboard -->
+              <li class="sidebar-dropdown">
+                <a href="#"><i class="fa fa-shopping-cart"></i><span>E-commerce</span><span class="badge badge-pill badge-danger">3</span></a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li><a href="#">Products <span>Pro</span></a></li>
+                    <li><a href="#">Orders</a></li>
+                    <li><a href="#">Credit cart</a></li>
+                  </ul>
                 </div>
-                <a href="#" class="dashboard-nav-item"><i class="fas fa-cogs"></i>Settings </a><a
-                    href="#" class="dashboard-nav-item"><i class="fas fa-user"></i>Profile </a>
-                <div class="nav-item-divider"></div>
-                <a
-                    href="#" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i>Logout </a>
-            </nav>
+              </li>
+              <!-- E-commerce -->
+              <li class="sidebar-dropdown">
+                <a href="#"><i class="far fa-gem"></i><span>Components</span></a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Panels</a></li>
+                    <li><a href="#">Tables</a></li>
+                    <li><a href="#">Icons</a></li>
+                    <li><a href="#">Forms</a></li>
+                  </ul>
+                </div>
+              </li>
+              <!-- Components -->
+              <li class="sidebar-dropdown">
+                <a href="#"><i class="fa fa-chart-line"></i><span>Charts</span></a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li><a href="#">Pie chart</a></li>
+                    <li><a href="#">Line chart</a></li>
+                    <li><a href="#">Bar chart</a></li>
+                    <li><a href="#">Histogram</a></li>
+                  </ul>
+                </div>
+              </li>
+              <!-- Charts -->
+              <li class="sidebar-dropdown">
+                <a href="#"><i class="fa fa-globe"></i><span>Maps</span></a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    <li><a href="#">Google maps</a></li>
+                    <li><a href="#">Open street map</a></li>
+                  </ul>
+                </div>
+              </li>
+              <!-- Maps -->
+          
+              <li class="header-menu"><span>Extra</span></li>
+              <li><a href="#"><i class="fa fa-book"></i><span>Documentation</span><span class="badge badge-pill badge-primary">Beta</span></a></li>
+              <li><a href="#"><i class="fa fa-calendar"></i><span>Calendar</span></a></li>
+              <li><a href="#"><i class="fa fa-folder"></i><span>Examples</span></a></li>
+            </ul>
+          </div>
+          <!-- sidebar-menu  -->
+        </div>
+        <!-- sidebar-content  -->
+        <div class="sidebar-footer">
+          <a href="#">
+            <i class="fa fa-bell"></i>
+            <span class="badge badge-pill badge-warning notification">3</span>
+          </a>
+          <a href="#">
+            <i class="fa fa-envelope"></i>
+            <span class="badge badge-pill badge-success notification">7</span>
+          </a>
+          <a href="#">
+            <i class="fa fa-cog"></i>
+            <span class="badge-sonar"></span>
+          </a>
+          <a href="#">
+            <i class="fa fa-power-off"></i>
+          </a>
+        </div>
+        <!-- sidebar-footer  -->
+      </nav>
+      <!-- sidebar-wrapper  -->
+          
         </div>
         <div class='dashboard-app'>
             <header class='dashboard-toolbar'><a href="#!" class="menu-toggle"><i class="fas fa-bars"></i></a></header>
@@ -66,29 +142,10 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </div>
-    </div>
 
-    <script>
-        const mobileScreen = window.matchMedia("(max-width: 990px )");
-        $(document).ready(function () {
-            $(".dashboard-nav-dropdown-toggle").click(function () {
-                $(this).closest(".dashboard-nav-dropdown")
-                    .toggleClass("show")
-                    .find(".dashboard-nav-dropdown")
-                    .removeClass("show");
-                $(this).parent()
-                    .siblings()
-                    .removeClass("show");
-            });
-            $(".menu-toggle").click(function () {
-                if (mobileScreen.matches) {
-                    $(".dashboard-nav").toggleClass("mobile-show");
-                } else {
-                    $(".dashboard").toggleClass("dashboard-compact");
-                }
-            });
-        });
-    </script>
+        </div>
+
+
+    <script src="../Asset/js/SideMenu.js"></script>
 
 </asp:Content>

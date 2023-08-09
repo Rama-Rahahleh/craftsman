@@ -2,9 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
- <h1>Reported Accounts Dashboard</h1>
 
-    <table border="1">
+
+   <!-- <table border="1">
         <tr>
             <th>Account ID</th>
             <th>Username</th>
@@ -35,7 +35,7 @@
                 <a href="resolve.aspx?accountId=2">Resolve</a>
             </td>
         </tr>
-        <!-- More rows here -->
-    </table>
+        
+    </table>-->
 
 </asp:Content>
