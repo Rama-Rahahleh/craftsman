@@ -391,6 +391,7 @@
             </div>
         </div>
         </div>
+
         <div class="modal" role="dialog" id="SignUpModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
