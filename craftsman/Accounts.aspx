@@ -4,8 +4,29 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+        /* Modal styles */
+
+        .btn.btn-secondary.close {
+
+        border-radius: 1.3rem;
+        position: relative;
+    left: 85%;
+        }
+        .modal-content {
+
+    border-radius: 1rem;
+
+        box-shadow: 0 0 8px 0px #000000a6;
+            padding: 3%;
 
 
+}
+        .modal {
+    position: fixed;
+    top: 25%;
+    left: 0;
+
+}
         h1 {
             font-weight: bold;
             margin: 0;
@@ -391,4 +412,23 @@
             </div>
         </div>
     </div>
+    
+    <div id="Popup" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>Pop up Message should go here</p>
+        <button type="button" class="btn btn-secondary close" data-dismiss="modal" >Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Popup Model Script -->
+  <script>
+      function openSucessRegister() {
+          $("#Popup").modal('show');
+      }
+  </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </asp:Content>

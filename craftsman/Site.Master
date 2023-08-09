@@ -187,7 +187,9 @@
     <script src="Asset/lib/counterup/counterup.min.js"></script>
     <script src="Asset/lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="Asset/lib/isotope/isotope.pkgd.min.js"></script>
-    <%--<script src="Asset/lib/lightbox/js/lightbox.min.js"></script>--%>
+<%--    <script src="Asset/lib/lightbox/js/lightbox.min.js"></script>--%>
+   
+
 
     <!-- Template Javascript -->
     <script src="Asset/js/main.js"></script>

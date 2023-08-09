@@ -22,6 +22,7 @@ namespace craftsman
 
         protected void signIn_Click(object sender, EventArgs e)
         {
+
             SignUpDiv.Visible = true;
             SignINDIV.Visible = false;
         }
@@ -72,12 +73,15 @@ namespace craftsman
                         {
                             Literal2.Visible = true;
                             Literal2.Text = $"<p class='text-danger'>Invalid Email or Password.</p>";
+                            
 
                         }
                         else if (result == 0)
                         {
                             Literal2.Visible = true;
                             Literal2.Text = $"<p class='text-danger'>Email is not Found .</p>";
+                            // Inject JavaScript to open the modal
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "openSucessRegister();", true);
                         }
                         
                     }
@@ -113,6 +117,7 @@ namespace craftsman
                             if (result == 1)
                             {
                                 Literal1.Text = "<p class='text-success'>Sign up successful!</p>";
+                                
                             }
                             else if (result == -1)
                             {
