@@ -326,7 +326,7 @@
                 <asp:RequiredFieldValidator ID="rfemail" runat="server"
                     ErrorMessage="Please enter email"
                     ControlToValidate="email"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create"></asp:RequiredFieldValidator>
 
                 <asp:RegularExpressionValidator ID="rgemail" runat="server"
@@ -343,7 +343,7 @@
                 <asp:RequiredFieldValidator ID="rfusername" runat="server"
                     ErrorMessage="Please enter user name"
                     ControlToValidate="username"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create">
                 </asp:RequiredFieldValidator>
 
@@ -353,7 +353,7 @@
                     runat="server"
                     ErrorMessage="Please enter phone"
                     ControlToValidate="phone"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create">
                 </asp:RequiredFieldValidator>
 
@@ -362,7 +362,7 @@
                     runat="server"
                     ErrorMessage="Please enter password"
                     ControlToValidate="password"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create">
                 </asp:RequiredFieldValidator>
 
@@ -390,5 +390,26 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+        <div class="modal" role="dialog" id="SignUpModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="msg" runat="server">Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    <script>
+        function ShowPopup() {
+            $('#SignUpModal').modal('show');
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </asp:Content>

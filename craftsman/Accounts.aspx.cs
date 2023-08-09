@@ -89,53 +89,45 @@ namespace craftsman
 
         protected void Sign_UP_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                try
+                using (SqlCommand com = new SqlCommand("CreateAccount", con))
                 {
-                    using (SqlConnection con = new SqlConnection(ConnectionString))
+
+                    com.Connection = con;
+                    com.CommandType = System.Data.CommandType.StoredProcedure;
+                    con.Open();
+                    com.CommandText = "CreateAccount";
+                    com.Parameters.AddWithValue("@User_Name", username.Text);
+                    com.Parameters.AddWithValue("@User_Email", email.Text);
+                    com.Parameters.AddWithValue("@User_Phone", phone.Text);
+                    com.Parameters.AddWithValue("@User_Password", password.Text);
+                    com.Parameters.Add("@msg", SqlDbType.Int);
+                    com.Parameters["@msg"].Direction = ParameterDirection.Output;
+
+
+                    com.ExecuteNonQuery();
+
+                    int result = Convert.ToInt32(com.Parameters["@msg"].Value);
+                    if (result == 1)
                     {
-                        using (SqlCommand com = new SqlCommand("CreateAccount", con))
-                        {
-                            com.Connection = con;
-                            com.CommandType = System.Data.CommandType.StoredProcedure;
-                            com.CommandText = "CreateAccount";
-                            com.Parameters.AddWithValue("@User_Name", username.Text);
-                            com.Parameters.AddWithValue("@User_Email", email.Text);
-                            com.Parameters.AddWithValue("@User_Phone", phone.Text);
-                            com.Parameters.AddWithValue("@User_Password", password.Text);
-                            com.Parameters.Add("msg", SqlDbType.Int);
-                            com.Parameters["msg"].Direction = ParameterDirection.Output;
-                            con.Open();
-                            com.ExecuteNonQuery();
-
-                            int result = Convert.ToInt32(com.Parameters["@msg"].Value);
-                            if (result == 1)
-                            {
-                                Literal1.Text = "<p class='text-success'>Sign up successful!</p>";
-                            }
-                            else if (result == -1)
-                            {
-                                Literal1.Text = "<p class='text-danger'>Can't accept email</p>";
-                            }
-                            Literal1.Visible = true;
-
-                            con.Close();
-                        }
+                        
+                        msg.InnerText = "Sign up successful!";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "ShowPopup();", true);
                     }
+                    else if (result == -1)
+                    {
+                        
+                        msg.InnerText = "Can't accept email";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "ShowPopup();", true);
+                    }
+
+
+                    con.Close();
                 }
-                catch (Exception ex)
-                {
-                    ltResult.Text = $"<p class='text-danger'>{ex.Message}</p>";
-                    ltResult.Visible = true;
-                }
-            }
-            else
-            {
-                ltResult.Text = "<p class='text-danger'>Please correct the errors and try again.</p>";
-                ltResult.Visible = true;
             }
 
+            
             email.Text = string.Empty;
             phone.Text = string.Empty;
             username.Text = string.Empty;
