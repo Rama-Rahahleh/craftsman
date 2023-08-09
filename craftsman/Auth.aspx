@@ -331,10 +331,10 @@ footer a {
                            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                        </div>
                        <span>or use your email for registration</span>
-                       <asp:TextBox ID="TextBox1" runat="server" CssClass="input"></asp:TextBox>
-                       <asp:TextBox ID="TextBox2" runat="server" CssClass="input"></asp:TextBox>
-                       <asp:TextBox ID="TextBox3" runat="server" CssClass="input"></asp:TextBox>
-                       <asp:TextBox ID="TextBox4" runat="server" CssClass="input"></asp:TextBox>
+                       <asp:TextBox ID="TextBox1" runat="server" CssClass="input" Text="Name"></asp:TextBox>
+                       <asp:TextBox ID="TextBox2" runat="server" CssClass="input" Text="Email"></asp:TextBox>
+                       <asp:TextBox ID="TextBox3" runat="server" CssClass="input" Text="Phone"></asp:TextBox>
+                       <asp:TextBox ID="TextBox4" runat="server" CssClass="input" Text="Password"></asp:TextBox>
 
                       
                        <asp:Button ID="Sign_UP" runat="server" Text="SignUp" CssClass="button"/>
@@ -350,12 +350,11 @@ footer a {
                            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                        </div>
                        <span>or use your account</span>
-                       <asp:TextBox ID="TextBox5" runat="server" CssClass="input"></asp:TextBox>
-                       <asp:TextBox ID="TextBox6" runat="server" CssClass="input"></asp:TextBox>
+                       <asp:TextBox ID="TextBox5" runat="server" CssClass="input" Text="Email"></asp:TextBox>
+                       <asp:TextBox ID="TextBox6" runat="server" CssClass="input" Text="Password"></asp:TextBox>
 
                        <asp:Button ID="Sign_In" runat="server" Text="Sign In" CssClass="button" />
-                       <%--<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />--%>
+
                        <a href="#">Forgot your password?</a>
 
                    </div>
@@ -372,7 +371,7 @@ footer a {
                     <div class="overlay-panel overlay-right">
                         <h1>Hello, Friend!</h1>
                         <p>Enter your personal details and start journey with us</p>
-                        <button id="signUp"  class=" button ghost" >Sign In</button>
+                        <button id="signUp"  class=" button ghost" >Sign Up</button>
                       
                     </div>
                 </div>

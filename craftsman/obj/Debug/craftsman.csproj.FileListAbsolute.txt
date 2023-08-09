@@ -54,7 +54,6 @@ C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.CopyComplete
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.dll
 C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.pdb
-C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.AssemblyReference.cache
 C:\Users\Rama.r\Desktop\تدريب\craftsman\craftsman\bin\craftsman.dll.config
 C:\Users\Rama.r\Desktop\تدريب\craftsman\craftsman\bin\craftsman.dll
 C:\Users\Rama.r\Desktop\تدريب\craftsman\craftsman\bin\craftsman.pdb
@@ -169,3 +168,4 @@ C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.csp
 C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.dll
 C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.pdb
 C:\Users\tamar\Desktop\CraftsProject\craftsman\craftsman\obj\Debug\craftsman.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Documents\GitHub\craftsman\craftsman\obj\Debug\craftsman.csproj.AssemblyReference.cache

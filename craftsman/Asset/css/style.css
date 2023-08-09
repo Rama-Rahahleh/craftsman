@@ -40,7 +40,27 @@
     opacity: 1;
 }
 
+/*** Model popup***/
+.btn.btn-secondary.close {
+    border-radius: 1.3rem;
+    position: relative;
+    left: 88%;
+}
 
+.modal-content {
+    border-radius: 1rem;
+    box-shadow: 0 0 8px 0px #000000a6;
+    padding: 3%;
+}
+
+.modal {
+    position: fixed;
+    top: 25%;
+    left: 0;
+}
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent gray color */
+}
 /*** Button ***/
 .btn {
     font-weight: 500;

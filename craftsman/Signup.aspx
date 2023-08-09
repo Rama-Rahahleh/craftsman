@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Signup.aspx.cs" Inherits="craftsman.Signup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-   <style>
-       *{
+<style>
+
+*{
 	font-family: sans-serif;
 }
 body{
@@ -126,7 +127,7 @@ select{
 }
 
 
-    </style>
+</style>
 
 		<div class="form">
 			
