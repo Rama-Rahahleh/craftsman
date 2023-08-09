@@ -110,7 +110,6 @@ namespace craftsman
                     com.Parameters.Add("@msg", SqlDbType.Int);
                     com.Parameters["@msg"].Direction = ParameterDirection.Output;
 
-
                     com.ExecuteNonQuery();
 
                     int result = Convert.ToInt32(com.Parameters["@msg"].Value);
@@ -118,13 +117,13 @@ namespace craftsman
                     {
                         
                         msg.InnerText = "Sign up successful!";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "ShowPopup();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "Popup();", true);
                     }
                     else if (result == -1)
                     {
                         
                         msg.InnerText = "Can't accept email";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "ShowPopup();", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "Popup();", true);
                     }
 
 
