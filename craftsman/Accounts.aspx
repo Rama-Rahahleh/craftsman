@@ -1,32 +1,13 @@
 ﻿<%@ Page Title="Registration" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Accounts.aspx.cs" Inherits="craftsman.Accounts" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+     
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-        /* Modal styles */
-
-        .btn.btn-secondary.close {
-
-        border-radius: 1.3rem;
-        position: relative;
-    left: 85%;
-        }
-        .modal-content {
-
-    border-radius: 1rem;
-
-        box-shadow: 0 0 8px 0px #000000a6;
-            padding: 3%;
 
 
-}
-        .modal {
-    position: fixed;
-    top: 25%;
-    left: 0;
-
-}
         h1 {
             font-weight: bold;
             margin: 0;
@@ -347,7 +328,7 @@
                 <asp:RequiredFieldValidator ID="rfemail" runat="server"
                     ErrorMessage="Please enter email"
                     ControlToValidate="email"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create"></asp:RequiredFieldValidator>
 
                 <asp:RegularExpressionValidator ID="rgemail" runat="server"
@@ -364,7 +345,7 @@
                 <asp:RequiredFieldValidator ID="rfusername" runat="server"
                     ErrorMessage="Please enter user name"
                     ControlToValidate="username"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create">
                 </asp:RequiredFieldValidator>
 
@@ -374,7 +355,7 @@
                     runat="server"
                     ErrorMessage="Please enter phone"
                     ControlToValidate="phone"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create">
                 </asp:RequiredFieldValidator>
 
@@ -383,7 +364,7 @@
                     runat="server"
                     ErrorMessage="Please enter password"
                     ControlToValidate="password"
-                    Display="Dynamic"
+                    Display="Dynamic" ForeColor="red"
                     ValidationGroup="create">
                 </asp:RequiredFieldValidator>
 
