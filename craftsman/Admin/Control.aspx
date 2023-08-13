@@ -4,13 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
 	<style>
-		@import "https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/dashboard.scss";
-body {
-  background-color: #1b2431;
-  color: #202020;
-  font-family: "Montserrat", "Helvetica", "Open Sans", "Arial";
-  font-size: 13px;
-}
+
 
 a:hover {
   text-decoration: none;
@@ -22,7 +16,10 @@ figure {
   padding: 0;
 }
 
-
+.page-wrapper .page-content > div {
+    padding: 20px 82px;
+    margin-left: 69px;
+}
 .card-list {
   width: 100%;
 }
@@ -79,8 +76,8 @@ figure {
 }
 
 .projects {
-  background-color: #273142;
-  border: 1px solid #313D4F;
+  /*background-color: #273142;
+  border: 1px solid #313D4F;*/
   overflow-x: auto;
   width: 100%;
 }
@@ -113,12 +110,12 @@ figure {
 }
 
 .projects-table {
-  background: #273142;
-  width: 100%;
+  /*background: #273142;*/
+  width: max-content;
 }
 .projects-table td,
 .projects-table th {
-  color: white;
+  color: black;
   padding: 10px 22px;
   vertical-align: middle;
 }
@@ -263,9 +260,71 @@ figure {
     width: 100%;
         }
 
+.switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+        input:checked + .slider {
+            background-color: #003162;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #003162;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+.hidden{
+	display=none;
+}
 	</style>   
     	
-		 	
+
 
 	<div class="row">
 		
@@ -308,198 +367,65 @@ figure {
 			</div>
 			<div class="projects mb-4">
 				<div class="projects-inner">
-					<header class="projects-header">
-						<div class="title">Ongoing Projects</div>
-						<div class="count">| 32 Projects</div>
-						<i class="zmdi zmdi-download"></i>
-					</header>
-					<table class="projects-table">
-						<thead>
-							<tr>
-								<th>Project</th>
-								<th>Deadline</th>
-								<th>Leader + Team</th>
-								<th>Budget</th>
-								<th>Status</th>
-								<th class="text-right">Actions</th>
-							</tr>
-						</thead>
-						<tr>
-							<td>
-								<p>New Dashboard</p>
-								<p>Google</p>
-							</td>
-							<td>
-								<p>17th Oct, 15</p>
-								<p class="text-danger">Overdue</p>
-							</td>
-							<td class="member">
-								<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-								<div class="member-info">
-									<p>Myrtle Erickson</p>
-									<p>UK Design Team</p>
-								</div>
-							</td>
-							<td>
-								<p>$4,670</p>
-								<p>Paid</p>
-							</td>
-							<td class="status">
-								<span class="status-text status-orange">In progress</span>
-							</td>
-							<td>
-								<form class="form" action="#" method="POST">
-								<select class="action-box">
-									<option>Actions</option>
-									<option>Start project</option>
-									<option>Send for QA</option>
-									<option>Send invoice</option>
-								</select>
-								</form>
-							</td>
-						</tr>
-						<tr class="danger-item">
-							<td>
-								<p>New Dashboard</p>
-								<p>Google</p>
-							</td>
-							<td>
-								<p>17th Oct, 15</p>
-								<p class="text-danger">Overdue</p>
-							</td>
-							<td class="member">
-								<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-								<div class="member-info">
-									<p>Myrtle Erickson</p>
-									<p>UK Design Team</p>
-								</div>
-							</td>
-							<td>
-								<p>$4,670</p>
-								<p>Paid</p>
-							</td>
-							<td class="status">
-								<span class="status-text status-red">Blocked</span>
-							</td>
-							<td>
-								<form class="form" action="#" method="POST">
-									<select class="action-box">
-										<option>Actions</option>
-										<option>Start project</option>
-										<option>Send for QA</option>
-										<option>Send invoice</option>
-									</select>
-								</form>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>New Dashboard</p>
-								<p>Google</p>
-							</td>
-							<td>
-								<p>17th Oct, 15</p>
-								<p class="text-danger">Overdue</p>
-							</td>
-							<td class="member">
-								<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-								<div class="member-info">
-									<p>Myrtle Erickson</p>
-									<p>UK Design Team</p>
-								</div>
-							</td>
-							<td>
-								<p>$4,670</p>
-								<p>Paid</p>
-							</td>
-							<td class="status">
-								<span class="status-text status-orange">In progress</span>
-							</td>
-							<td>
-								<form class="form" action="#" method="POST">
-									<select class="action-box">
-						  <option>Actions</option>
-						  <option>Start project</option>
-						  <option>Send for QA</option>
-						  <option>Send invoice</option>
-						</select>
-								</form>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>New Dashboard</p>
-								<p>Google</p>
-							</td>
-							<td>
-								<p>17th Oct, 15</p>
-								<p class="text-danger">Overdue</p>
-							</td>
-							<td class="member">
-								<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-								<div class="member-info">
-									<p>Myrtle Erickson</p>
-									<p>UK Design Team</p>
-								</div>
-							</td>
-							<td>
-								<p>$4,670</p>
-								<p>Paid</p>
-							</td>
-							<td class="status">
-								<span class="status-text status-blue">Early stages</span>
-							</td>
-							<td>
-								<form class="form" action="#" method="POST">
-									<select class="action-box">
-						  <option>Actions</option>
-						  <option>Start project</option>
-						  <option>Send for QA</option>
-						  <option>Send invoice</option>
-						</select>
-								</form>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<p>New Dashboard</p>
-								<p>Google</p>
-							</td>
-							<td>
-								<p>17th Oct, 15</p>
-								<p class="text-danger">Overdue</p>
-							</td>
-							<td class="member">
-								<figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/584938/people_8.png" /></figure>
-								<div class="member-info">
-									<p>Myrtle Erickson</p>
-									<p>UK Design Team</p>
-								</div>
-							</td>
-							<td>
-								<p>$4,670</p>
-								<p>Paid</p>
-							</td>
-							<td class="status">
-								<span class="status-text status-orange">In progress</span>
-							</td>
-							<td>
-								<form class="form" action="#" method="POST">
-									<select class="action-box">
-						  <option>Actions</option>
-						  <option>Start project</option>
-						  <option>Send for QA</option>
-						  <option>Send invoice</option>
-						</select>
-								</form>
-							</td>
-						</tr>
-					</table>
+					<asp:DataGrid ID="AccountGrid" runat="server"  CssClass="projects-table w-100"
+						AllowPaging="true" OnPageIndexChanged="AccountGrid_PageIndexChanged" 
+						PageSize="10" PagerStyle-HorizontalAlign="Center" PagerStyle-ForeColor="#333399"
+						PagerStyle-BackColor="#99ccff" 
+						PagerStyle-Mode="NumericPages" PagerStyle-Position="Bottom"
+						AutoGenerateColumns="false" 
+						HeaderStyle-BackColor="#99ccff" HeaderStyle-BorderColor="#99ccff"
+						HeaderStyle-Font-Bold="true" HeaderStyle-ForeColor="White">
+						<Columns>
+							<asp:TemplateColumn HeaderText="#">
+								<ItemTemplate>
+									<%# Container.DataSetIndex+1 %>
+								</ItemTemplate>
+							</asp:TemplateColumn>
+
+						<asp:BoundColumn DataField="USER_ID" />						
+						
+						<asp:BoundColumn DataField="USERNAME" HeaderText="User Name" />
+						
+						<asp:BoundColumn DataField="PHONE" HeaderText="Phone"/>
+						<asp:BoundColumn DataField="EMAIL" HeaderText="User Email"/>
+						<asp:TemplateColumn HeaderText="User Type" >
+							<ItemTemplate>
+								<asp:Label ID="UserType" runat="server" ></asp:Label>
+							</ItemTemplate>
+						</asp:TemplateColumn>
+                            <asp:TemplateColumn HeaderText="Is Reported">
+                                <ItemTemplate>
+                                    <label class="switch">
+                                        <asp:CheckBox ID="Report" runat="server" OnCheckedChanged="Report_CheckedChanged"
+                                            />
+                                        <span class="slider round"></span>
+                                    </label>
+									
+                                </ItemTemplate>
+                            </asp:TemplateColumn>
+                            <asp:TemplateColumn HeaderText="Is Active">
+                                <ItemTemplate>
+									<label class="switch">
+                                        <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="Active_CheckedChanged"
+                                             />
+                                        <span class="slider round"></span>
+                                    </label>
+                                    
+                                </ItemTemplate>
+						</asp:TemplateColumn>
+						<asp:BoundColumn DataField="USER_TYPE" />
+
+						<asp:BoundColumn DataField="IsReported" />
+
+					    <asp:BoundColumn DataField="IsActive"  />
+						</Columns>		
+						
+					</asp:DataGrid>
 				</div>
 			</div>
-			
+
+
 		</div>
 	</div>
-
-		
+	
 </asp:Content>
