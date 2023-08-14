@@ -89,18 +89,74 @@ namespace craftsman.Admin
 
         }
 
-        protected void Report_CheckedChanged(object sender, EventArgs e)
+        protected void AccountGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                CheckBox ReportCheckBox = (CheckBox)e.Row.FindControl("ReportCheckBox");
 
+                if (ReportCheckBox != null)
+                {
+                    DataRowView rowView = (DataRowView)e.Row.DataItem;
+                    ReportCheckBox.Checked = Convert.ToBoolean(rowView["IsReported"]);
+                }
+            }
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                CheckBox ActiveCheckBox = (CheckBox)e.Row.FindControl("ActiveCheckBox");
+
+                if (ActiveCheckBox != null)
+                {
+                    DataRowView rowView = (DataRowView)e.Row.DataItem;
+                    ActiveCheckBox.Checked = Convert.ToBoolean(rowView["IsActive"]);
+                }
+            }
         }
 
+        protected void Report_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox Report = sender as CheckBox;
+            DataGridItem item = (DataGridItem)Report.NamingContainer;
+
+            int User_id = Convert.ToInt32(item.Cells[1].Text);
+            bool isChecked = Report.Checked;  
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("Reported", con)) 
+                {
+                    con.Open();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@userid", User_id);
+                    cmd.Parameters.AddWithValue("@IsReported", isChecked);  
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
         protected void Active_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox Active = sender as CheckBox;
             DataGridItem item = (DataGridItem)Active.NamingContainer;
 
             int User_id = Convert.ToInt32(item.Cells[1].Text);
-            //using(SqlConnection)
+            bool IsActive = Active.Checked; 
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("Active", con))
+                {
+                    con.Open();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@userid", User_id);
+                    cmd.Parameters.AddWithValue("@isActive", IsActive); 
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
+
     }
 }

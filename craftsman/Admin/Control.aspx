@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminNested.master" AutoEventWireup="true" CodeBehind="Control.aspx.cs" Inherits="craftsman.Admin.Control" %>
+﻿<%@ Page Title="Control" Language="C#" MasterPageFile="~/Admin/AdminNested.master" AutoEventWireup="true" CodeBehind="Control.aspx.cs" Inherits="craftsman.Admin.Control" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -319,9 +319,8 @@ figure {
             .slider.round:before {
                 border-radius: 50%;
             }
-.hidden{
-	display=none;
-}
+
+
 	</style>   
     	
 
@@ -374,7 +373,7 @@ figure {
 						PagerStyle-Mode="NumericPages" PagerStyle-Position="Bottom"
 						AutoGenerateColumns="false" 
 						HeaderStyle-BackColor="#99ccff" HeaderStyle-BorderColor="#99ccff"
-						HeaderStyle-Font-Bold="true" HeaderStyle-ForeColor="White">
+						HeaderStyle-Font-Bold="true" HeaderStyle-ForeColor="White"  OnRowDataBound="AccountGrid_RowDataBound">
 						<Columns>
 							<asp:TemplateColumn HeaderText="#">
 								<ItemTemplate>
@@ -396,7 +395,7 @@ figure {
                             <asp:TemplateColumn HeaderText="Is Reported">
                                 <ItemTemplate>
                                     <label class="switch">
-                                        <asp:CheckBox ID="Report" runat="server" OnCheckedChanged="Report_CheckedChanged"
+                                        <asp:CheckBox ID="Report" runat="server" AutoPostBack="true" OnCheckedChanged="Report_CheckedChanged"
                                             />
                                         <span class="slider round"></span>
                                     </label>
@@ -406,7 +405,7 @@ figure {
                             <asp:TemplateColumn HeaderText="Is Active">
                                 <ItemTemplate>
 									<label class="switch">
-                                        <asp:CheckBox ID="Active" runat="server" OnCheckedChanged="Active_CheckedChanged"
+                                        <asp:CheckBox ID="Active" runat="server" AutoPostBack="true" OnCheckedChanged="Active_CheckedChanged"
                                              />
                                         <span class="slider round"></span>
                                     </label>
