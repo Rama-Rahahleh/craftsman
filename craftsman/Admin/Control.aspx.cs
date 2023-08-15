@@ -132,6 +132,11 @@ namespace craftsman.Admin
                     cmd.Parameters.AddWithValue("@IsReported", isChecked);  
 
                     cmd.ExecuteNonQuery();
+                    if(isChecked==true)
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is Reported');", true);
+                    else
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is UnReported');", true);
+
                     con.Close();
                 }
             }
@@ -154,6 +159,11 @@ namespace craftsman.Admin
                     cmd.Parameters.AddWithValue("@isActive", IsActive); 
 
                     cmd.ExecuteNonQuery();
+                    if (IsActive == true)
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is Activated');", true);
+                    else
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is UnActive');", true);
+                    con.Close();
                 }
             }
         }
