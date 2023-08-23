@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminNested.master" AutoEventWireup="true" CodeBehind="Categories.aspx.cs" Inherits="craftsman.Admin.Categories" %>
+﻿<%@ Page Title="Categories" Language="C#" MasterPageFile="~/Admin/AdminNested.master" AutoEventWireup="true" CodeBehind="Categories.aspx.cs" Inherits="craftsman.Admin.Categories" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head1" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -56,27 +56,31 @@
      <div id="accordioncontainer" class="category-group" runat="server">
            <label style="margin-left: 8%" >Categories</label>
             <br />
-         <div class="accordion" id="CategoryAccordion" runat="server">
+         <div class="accordion" id="CategoryAccordion" runat="server" ClientIDMode="Static" >
           
     </div>
 
-    <asp:Button ID="OpenForm" CssClass="form-button" runat="server" Text="Create " OnClick="OpenForm_Click"/>
+    <asp:Button ID="OpenForm" CssClass="form-button" runat="server" Text="Create "  OnClick="OpenForm_Click"/>
      </div>   
     
     
     <!---------------------------- Add Category Form-------------------------------->
 
     <div id="AddCategory" class="form-group" runat="server" visible="false">
-        <div class="form-group" runat="server">
+        <div class="form-group mb-2">
             <asp:TextBox ID="category" runat="server" CssClass="form-control" placeholder="Category Name"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="category"
+                ForeColor="Red" Font-Size="Small" Font-Bold="true"
+               ValidationGroup="AddToDB" ErrorMessage="please enter category name"></asp:RequiredFieldValidator>
         </div>
-        <br />
-        <div class="form-group" runat="server">
+        
+        <div class="form-group" >
             <label>Description</label>
             <textarea id="description" class="form-control" rows="7" placeholder="Category Description" runat="server"></textarea>
-
-            <asp:Button ID="AddToDB" CssClass="form-button" runat="server" Text="ADD" OnClick="AddToDB_Click" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="AddToDB" ControlToValidate="description"
+                ForeColor="Red" Font-Size="Small" Font-Bold="true"  ErrorMessage="please enter category Descrpition"></asp:RequiredFieldValidator>           
         </div>
+         <asp:Button ID="AddToDB" CssClass="form-button" runat="server" Text="ADD" OnClick="AddToDB_Click" ValidationGroup="AddToDB"  />
     </div>
 
 </asp:Content>

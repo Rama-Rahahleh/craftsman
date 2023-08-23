@@ -16,16 +16,16 @@ namespace craftsman.Admin
         string ConnectionString = ConfigurationManager.ConnectionStrings["craftman"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            OpenForm.Visible = true;
             if (!IsPostBack)
             {
                 PopulateFAQAccordion();
             }
-            
+
         }
 
         protected void OpenForm_Click(object sender, EventArgs e)
         {
+
             AddCategory.Visible = true;
             CategoryAccordion.Visible = false;
             OpenForm.Visible = false;
@@ -36,22 +36,28 @@ namespace craftsman.Admin
         {
             AddCategory.Visible = false;
             CategoryAccordion.Visible = true;
-
-            using (SqlConnection con= new SqlConnection(ConnectionString))
+            if (Page.IsValid)
             {
-                using (SqlCommand cmd = new SqlCommand("insert into Categories(CATEGORY,DESCRIPTION) values(@Category, @description)", con))
+
+
+                using (SqlConnection con = new SqlConnection(ConnectionString))
                 {
-                    cmd.Connection = con;
-                    con.Open();
-                    cmd.Parameters.AddWithValue("@Category", category.Text); 
-                    cmd.Parameters.AddWithValue("@Description", description.Value); 
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    using (SqlCommand cmd = new SqlCommand("AddNewCategory", con))
+                    {
+                        cmd.Connection = con;
+                        con.Open();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@new_category", category.Text);
+                        cmd.Parameters.AddWithValue("@Description", description.Value);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        PopulateFAQAccordion();
+                        category.Text = "";
+                        description.Value = "";
+                        OpenForm.Visible = true;
+                    }
                 }
             }
-            PopulateFAQAccordion();
-            category.Text = "";
-            description.Value = "";
         }
 
 
@@ -89,11 +95,11 @@ namespace craftsman.Admin
                                 accordionHeader.Attributes["id"] = "heading" + i;
 
                                 var button = new HtmlGenericControl("button");
-                                button.Attributes["class"] = "accordion-button collapsed";
+                                button.Attributes["class"] = "accordion-button";
                                 button.Attributes["type"] = "button";
                                 button.Attributes["data-bs-toggle"] = "collapse";
                                 button.Attributes["data-bs-target"] = "#collapse" + i;
-                                button.Attributes["aria-expanded"] = "false";
+                                button.Attributes["aria-expanded"] = "true";
                                 button.Attributes["aria-controls"] = "collapse" + i;
                                 button.InnerText = dataTable.Rows[i]["CATEGORY"].ToString();
 
@@ -113,7 +119,7 @@ namespace craftsman.Admin
                                 accordionCollapse.Controls.Add(accordionBody);
                                 accordionItem.Controls.Add(accordionCollapse);
                                 CategoryAccordion.Controls.Add(accordionItem);
-       
+
                             }
                         }
 

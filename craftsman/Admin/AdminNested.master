@@ -56,7 +56,7 @@
                                 <ul>
                                     <li><a href="Control.aspx">Accounts<span class="badge badge-pill badge-success">Pro</span></a></li>
                                     <li><a href="Categories.aspx">Categories</a></li>
-                                    <li><a href="#">Dashboard 3</a></li>
+                                    <li><a href="Accounts Categories.aspx">Accounts Categories</a></li>
                                 </ul>
                             </div>
                         </li>

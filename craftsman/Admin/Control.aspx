@@ -11,36 +11,37 @@
 		
 		<div class="col-md-12 ml-sm-auto col-lg-12 my-3">
 			<div class="card-list">
+				
 				<div class="row">
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
 						<div class="card blue">
-							<div class="title">all projects</div>
+							<div class="title">All Accounts</div>
 							<i class="zmdi zmdi-upload"></i>
-							<div class="value">89</div>
+							<div class="value" runat="server" id="StatDiv0"  ClientIDMode="Static"></div>
 							<div class="stat"><b>13</b>% increase</div>
 						</div>
 					</div>
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
 						<div class="card green">
-							<div class="title">team members</div>
+							<div class="title">Customers</div>
 							<i class="zmdi zmdi-upload"></i>
-							<div class="value">5,990</div>
+							<div class="value" runat="server" id="StatDiv1"  ClientIDMode="Static"></div>
 							<div class="stat"><b>4</b>% increase</div>
 						</div>
 					</div>
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
 						<div class="card orange">
-							<div class="title">total budget</div>
+							<div class="title">HandyMen</div>
 							<i class="zmdi zmdi-download"></i>
-							<div class="value">$80,990</div>
+							<div class="value" runat="server" id="StatDiv2"  ClientIDMode="Static"></div>
 							<div class="stat"><b>13</b>% decrease</div>
 						</div>
 					</div>
 					<div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
 						<div class="card red">
-							<div class="title">new customers</div>
+							<div class="title">Workshops</div>
 							<i class="zmdi zmdi-download"></i>
-							<div class="value">3</div>
+							<div class="value" runat="server" id="StatDiv3"  ClientIDMode="Static"></div>
 							<div class="stat"><b>13</b>% decrease</div>
 						</div>
 					</div>
