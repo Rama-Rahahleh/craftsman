@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace craftsman.Admin
 {
@@ -14,14 +15,18 @@ namespace craftsman.Admin
     {
         string ConnectionString = ConfigurationManager.ConnectionStrings["craftman"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
-        { if(!Page.IsPostBack)
-            { FillAccountGrid(); }
+        {
+            if (!Page.IsPostBack)
+            {
+                FillAccountGrid();
+                PopulateStatistics();
+            }
         }
         public void FillAccountGrid()
         {
-            using(SqlConnection con=new SqlConnection(ConnectionString))
+            using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                using(SqlCommand command=new SqlCommand("SELECT * FROM [Accounts]",con))
+                using (SqlCommand command = new SqlCommand("SELECT * FROM [Accounts]", con))
                 {
                     con.Open();
                     command.CommandType = System.Data.CommandType.Text;
@@ -35,9 +40,9 @@ namespace craftsman.Admin
                     AccountGrid.Columns[8].Visible = false;
                     AccountGrid.Columns[9].Visible = false;
                     AccountGrid.Columns[10].Visible = false;
-                    for (int i=0; i < AccountGrid.Items.Count; i++)
+                    for (int i = 0; i < AccountGrid.Items.Count; i++)
                     {
-                        Label Type = AccountGrid.Items[i].Cells[5].FindControl("UserType") as Label ;
+                        Label Type = AccountGrid.Items[i].Cells[5].FindControl("UserType") as Label;
                         if (AccountGrid.Items[i].Cells[8].Text == "1")
                         {
                             Type.Text = "Admin";
@@ -47,7 +52,7 @@ namespace craftsman.Admin
                         {
                             Type.Text = "HandyMan";
                         }
-                        else if(AccountGrid.Items[i].Cells[8].Text == "3")
+                        else if (AccountGrid.Items[i].Cells[8].Text == "3")
                         {
                             Type.Text = "Customer";
 
@@ -89,23 +94,43 @@ namespace craftsman.Admin
 
         }
 
+        //protected void AccountGrid_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        CheckBox ReportCheckBox = (CheckBox)e.Row.FindControl("ReportCheckBox");
+
+        //        if (ReportCheckBox != null)
+        //        {
+        //            DataRowView rowView = (DataRowView)e.Row.DataItem;
+        //            ReportCheckBox.Checked = Convert.ToBoolean(rowView["IsReported"]);
+        //        }
+        //    }
+
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        CheckBox ActiveCheckBox = (CheckBox)e.Row.FindControl("ActiveCheckBox");
+
+        //        if (ActiveCheckBox != null)
+        //        {
+        //            DataRowView rowView = (DataRowView)e.Row.DataItem;
+        //            ActiveCheckBox.Checked = Convert.ToBoolean(rowView["IsActive"]);
+        //        }
+        //    }
+        //}
+
         protected void AccountGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                CheckBox ReportCheckBox = (CheckBox)e.Row.FindControl("ReportCheckBox");
-
+                CheckBox ReportCheckBox = (CheckBox)e.Row.FindControl("Report");
                 if (ReportCheckBox != null)
                 {
                     DataRowView rowView = (DataRowView)e.Row.DataItem;
                     ReportCheckBox.Checked = Convert.ToBoolean(rowView["IsReported"]);
                 }
-            }
 
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                CheckBox ActiveCheckBox = (CheckBox)e.Row.FindControl("ActiveCheckBox");
-
+                CheckBox ActiveCheckBox = (CheckBox)e.Row.FindControl("Active");
                 if (ActiveCheckBox != null)
                 {
                     DataRowView rowView = (DataRowView)e.Row.DataItem;
@@ -120,18 +145,23 @@ namespace craftsman.Admin
             DataGridItem item = (DataGridItem)Report.NamingContainer;
 
             int User_id = Convert.ToInt32(item.Cells[1].Text);
-            bool isChecked = Report.Checked;  
+            bool isChecked = Report.Checked;
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("Reported", con)) 
+                using (SqlCommand cmd = new SqlCommand("Reported", con))
                 {
                     con.Open();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@userid", User_id);
-                    cmd.Parameters.AddWithValue("@IsReported", isChecked);  
+                    cmd.Parameters.AddWithValue("@IsReported", isChecked);
 
                     cmd.ExecuteNonQuery();
+                    if (isChecked == true)
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is Reported');", true);
+                    else
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is UnReported');", true);
+
                     con.Close();
                 }
             }
@@ -142,7 +172,7 @@ namespace craftsman.Admin
             DataGridItem item = (DataGridItem)Active.NamingContainer;
 
             int User_id = Convert.ToInt32(item.Cells[1].Text);
-            bool IsActive = Active.Checked; 
+            bool IsActive = Active.Checked;
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -151,12 +181,48 @@ namespace craftsman.Admin
                     con.Open();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@userid", User_id);
-                    cmd.Parameters.AddWithValue("@isActive", IsActive); 
+                    cmd.Parameters.AddWithValue("@isActive", IsActive);
 
                     cmd.ExecuteNonQuery();
+                    if (IsActive == true)
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is Activated');", true);
+                    else
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','User Is UnActive');", true);
+                    con.Close();
                 }
             }
         }
 
+
+        private void PopulateStatistics()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(ConnectionString))
+                {
+
+
+                    using (SqlCommand sqlCommand = new SqlCommand("Ganeral_Statistics", con))
+                    {
+                        con.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        SqlDataReader reader = sqlCommand.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            StatDiv0.InnerHtml = reader["AllAccounts"].ToString();
+                            StatDiv1.InnerHtml = reader["Customers"].ToString();
+                            StatDiv2.InnerHtml = reader["HandyMen"].ToString();
+                            StatDiv3.InnerHtml = reader["Workshops"].ToString();
+                        }
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

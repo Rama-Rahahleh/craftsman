@@ -107,8 +107,13 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Accounts.aspx" />
+    <Content Include="Admin\Accounts Categories.aspx" />
+    <Content Include="Admin\Categories.aspx" />
     <Content Include="Admin\Control.aspx" />
+    <Content Include="Admin\Reviews.aspx" />
+    <Content Include="Asset\css\AccountsCategory.css" />
     <Content Include="Asset\css\bootstrap.min.css" />
+    <Content Include="Asset\css\ContolStyle.css" />
     <Content Include="Asset\css\SideMenu.css" />
     <Content Include="Asset\css\style.css" />
     <Content Include="Asset\img\about.jpg" />
@@ -397,6 +402,13 @@
     <Compile Include="Accounts.aspx.designer.cs">
       <DependentUpon>Accounts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Accounts Categories.aspx.cs">
+      <DependentUpon>Accounts Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Accounts Categories.aspx.designer.cs">
+      <DependentUpon>Accounts Categories.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,12 +423,26 @@
     <Compile Include="Admin\AdminNested.master.designer.cs">
       <DependentUpon>AdminNested.master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Categories.aspx.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories.aspx.designer.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Control.aspx.cs">
       <DependentUpon>Control.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Control.aspx.designer.cs">
       <DependentUpon>Control.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
