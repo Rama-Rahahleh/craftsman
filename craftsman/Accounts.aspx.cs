@@ -71,12 +71,14 @@ namespace craftsman
 
                         if (result == -1)
                         {
-                            msg.InnerText= $"Invalid Email or Password.";
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+                            //msg.InnerText= $"Invalid Email or Password.";
+                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+                            ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','Sign up successful!');", true);
                         }
                         else if (result == 0)
-                            msg.InnerText = $"Email is not Found";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+                            //    msg.InnerText = $"Email is not Found";
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+                        //ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('error','Email Not Found');", true);
                     }
                 }
                 con.Close();
@@ -109,15 +111,17 @@ namespace craftsman
                     int result = Convert.ToInt32(com.Parameters["@msg"].Value);
                     if (result == 1)
                     {
-                        
-                        msg.InnerText = "Sign up successful!";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+
+                        //msg.InnerText = "Sign up successful!";
+                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+                        ScriptManager.RegisterStartupScript(UpdatePanel1,UpdatePanel1.GetType(),"CallMyFunction", "showContent('success','Sign up successful!');",true);
                     }
                     else if (result == -1)
                     {
-                        
-                        msg.InnerText = "Can't accept email";
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+
+                        //msg.InnerText = "Can't accept email";
+                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('error','Cant't accept email');", true);
                     }
 
 

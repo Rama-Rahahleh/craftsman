@@ -1,7 +1,9 @@
 ﻿<%@ Page Title="Registration" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Accounts.aspx.cs" Inherits="craftsman.Accounts" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
@@ -258,159 +260,199 @@
 		}*/
     </style>
 
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+
+        <ContentTemplate>
+            <div class=" container Accountcontainer " runat="server" id="SignINDIV">
+
+                <div class="form-container sign-in-container">
+                    <div class="form">
+                        <h1>Sign in</h1>
+                        <div class="social-container">
+                            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <span>or use your account</span>
 
 
-    <div class=" container Accountcontainer " runat="server" id="SignINDIV">
+                        <asp:TextBox ID="useremail" runat="server" CssClass="input" ValidationGroup="sign" placeholder="Enter your email"></asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                            ErrorMessage="Please give Email Address! "
+                            ControlToValidate="useremail"
+                            ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                            ForeColor="Red"
+                            Display="Dynamic"
+                            ValidationGroup="sign">
+                        </asp:RegularExpressionValidator>
 
-        <div class="form-container sign-in-container">
-            <div class="form">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                        <asp:TextBox ID="userpassword" runat="server" CssClass="input" placeholder="Enter your password"></asp:TextBox>
+
+                        <asp:Label ID="ErrorMessageLabel1" runat="server" ForeColor="Red" Disply="Dynamic" Text="" Visible="false"></asp:Label>
+
+                        <asp:Button ID="Sign_In" runat="server" Text="Sign In" CssClass="button" ValidationGroup="sign" OnClick="Sign_In_Click" />
+
+                        <a href="#">Forgot your password?</a>
+
+                    </div>
                 </div>
-                <span>or use your account</span>
+
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-right">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us please login with your personal info</p>
+                            <asp:Button ID="signIn" runat="server" CssClass="button ghost"
+                                ValidationGroup="sign"
+                                OnClick="signIn_Click" Text="Sign Up"></asp:Button>
+
+                            <asp:Literal ID="Literal2" runat="server" Visible="false"></asp:Literal>
 
 
-                <asp:TextBox ID="useremail" runat="server" CssClass="input" ValidationGroup="sign" placeholder="Enter your email"></asp:TextBox>
-                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
-                    ErrorMessage="Please give Email Address! "
-                    ControlToValidate="useremail"
-                    ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
-                    ForeColor="Red"
-                    Display="Dynamic"
-                    ValidationGroup="sign">
-                </asp:RegularExpressionValidator>
-
-                <asp:TextBox ID="userpassword" runat="server" CssClass="input" placeholder="Enter your password"></asp:TextBox>
-
-                <asp:Label ID="ErrorMessageLabel1" runat="server" ForeColor="Red" Disply="Dynamic" Text="" Visible="false"></asp:Label>
-
-                <asp:Button ID="Sign_In" runat="server" Text="Sign In" CssClass="button" ValidationGroup="sign" OnClick="Sign_In_Click" />
-
-                <a href="#">Forgot your password?</a>
-
-            </div>
-        </div>
-
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <asp:Button ID="signIn" runat="server" CssClass="button ghost"
-                        ValidationGroup="sign"
-                        OnClick="signIn_Click" Text="Sign Up"></asp:Button>
-
-                         <asp:Literal ID="Literal2" runat="server"  Visible="false"></asp:Literal>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class=" container Accountcontainer" runat="server" id="SignUpDiv" visible="false">
-        <div class="form-container sign-up-container">
-            <div class="form">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-
-                <asp:TextBox ID="email" runat="server" CssClass="input" placeholder="Enter your email"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfemail" runat="server"
-                    ErrorMessage="Please enter email"
-                    ControlToValidate="email"
-                    Display="Dynamic" ForeColor="red"
-                    ValidationGroup="create"></asp:RequiredFieldValidator>
-
-                <asp:RegularExpressionValidator ID="rgemail" runat="server"
-                    ErrorMessage="Please give Email Address! "
-                    ControlToValidate="email"
-                    ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
-                    ForeColor="Red"
-                    Display="Dynamic"
-                    ValidationGroup="create">
-                </asp:RegularExpressionValidator>
-
-
-                <asp:TextBox ID="username" runat="server" CssClass="input" placeholder="Enter your username"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfusername" runat="server"
-                    ErrorMessage="Please enter user name"
-                    ControlToValidate="username"
-                    Display="Dynamic" ForeColor="red"
-                    ValidationGroup="create">
-                </asp:RequiredFieldValidator>
-
-
-                <asp:TextBox ID="phone" runat="server" CssClass="input" placeholder="Enter your phone number"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfphone"
-                    runat="server"
-                    ErrorMessage="Please enter phone"
-                    ControlToValidate="phone"
-                    Display="Dynamic" ForeColor="red"
-                    ValidationGroup="create">
-                </asp:RequiredFieldValidator>
-
-                <asp:TextBox ID="password" runat="server" CssClass="input" placeholder="Enter your password"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfpassword"
-                    runat="server"
-                    ErrorMessage="Please enter password"
-                    ControlToValidate="password"
-                    Display="Dynamic" ForeColor="red"
-                    ValidationGroup="create">
-                </asp:RequiredFieldValidator>
-
-                <asp:Label ID="ErrorMessageLabel" runat="server" ForeColor="Red" ValidationGroup="create"></asp:Label>
-
-                <asp:Button ID="Sign_UP" runat="server" Text="Sign Up"
-                    ValidationGroup="create"
-                    CssClass="button" OnClick="Sign_UP_Click" />
-             
-                <asp:Literal ID="Literal1" runat="server" ></asp:Literal>
-            
-                
-            </div>
-            <div class="mt-3">
-                <asp:Literal ID="ltResult" runat="server"></asp:Literal>
-            </div>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <asp:Button ID="signUp" runat="server" CssClass=" button ghost" OnClick="signUp_Click" Text="Sign IN"></asp:Button>
-
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <div id="Popup" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p id="msg" runat="server"></p>
-        <button type="button" class="btn btn-secondary close" data-dismiss="modal" >Ok</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+            <div class=" container Accountcontainer" runat="server" id="SignUpDiv" visible="false">
+                <div class="form-container sign-up-container">
+                    <div class="form">
+                        <h1>Create Account</h1>
+                        <div class="social-container">
+                            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <span>or use your email for registration</span>
+
+                        <asp:TextBox ID="email" runat="server" CssClass="input" placeholder="Enter your email"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfemail" runat="server"
+                            ErrorMessage="Please enter email"
+                            ControlToValidate="email"
+                            Display="Dynamic" ForeColor="red"
+                            ValidationGroup="create"></asp:RequiredFieldValidator>
+
+                        <asp:RegularExpressionValidator ID="rgemail" runat="server"
+                            ErrorMessage="Please give Email Address! "
+                            ControlToValidate="email"
+                            ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                            ForeColor="Red"
+                            Display="Dynamic"
+                            ValidationGroup="create">
+                        </asp:RegularExpressionValidator>
+
+
+                        <asp:TextBox ID="username" runat="server" CssClass="input" placeholder="Enter your username"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfusername" runat="server"
+                            ErrorMessage="Please enter user name"
+                            ControlToValidate="username"
+                            Display="Dynamic" ForeColor="red"
+                            ValidationGroup="create">
+                        </asp:RequiredFieldValidator>
+
+
+                        <asp:TextBox ID="phone" runat="server" CssClass="input" placeholder="Enter your phone number"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfphone"
+                            runat="server"
+                            ErrorMessage="Please enter phone"
+                            ControlToValidate="phone"
+                            Display="Dynamic" ForeColor="red"
+                            ValidationGroup="create">
+                        </asp:RequiredFieldValidator>
+
+                        <asp:TextBox ID="password" runat="server" CssClass="input" placeholder="Enter your password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfpassword"
+                            runat="server"
+                            ErrorMessage="Please enter password"
+                            ControlToValidate="password"
+                            Display="Dynamic" ForeColor="red"
+                            ValidationGroup="create">
+                        </asp:RequiredFieldValidator>
+
+                        <asp:Label ID="ErrorMessageLabel" runat="server" ForeColor="Red" ValidationGroup="create"></asp:Label>
+
+                        <asp:Button ID="Sign_UP" runat="server" Text="Sign Up"
+                            ValidationGroup="create"
+                            CssClass="button" OnClick="Sign_UP_Click" />
+
+                        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+
+
+                    </div>
+                    <div class="mt-3">
+                        <asp:Literal ID="ltResult" runat="server"></asp:Literal>
+                    </div>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start journey with us</p>
+                            <asp:Button ID="signUp" runat="server" CssClass=" button ghost" OnClick="signUp_Click" Text="Sign IN"></asp:Button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Popup" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+
+                            <p id="msg" runat="server"></p>
+                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
     <!-- Popup Model Script -->
-  <script>
-        
-      function OpenPopUp() {
-          
-          $("#Popup").modal('show');
-      }
-  </script>
+    <script>
 
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        function OpenPopUp() {
+
+            $("#Popup").modal('show');
+        }
+
+        function showContent(status, messgae) {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "progressBar": true,
+                "preventDuplicates": false,
+                "positionClass": "toast-top-right",
+                "showDuration": "600",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "60000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            if (status == 'success') {
+                toastr["success"](messgae);
+            }
+            else if (status == 'info') {
+
+                toastr["info"](messgae);
+            }
+            else if (status == 'error') {
+
+                toastr["error"](messgae);
+            }
+            else if (status == 'warning') {
+
+                toastr["warning"](messgae);
+            }
+        }
+
+    </script>
+
+    <%--script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>--%>
 </asp:Content>

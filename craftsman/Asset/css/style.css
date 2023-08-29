@@ -43,8 +43,9 @@
 /*** Model popup***/
 .btn.btn-secondary.close {
     border-radius: 1.3rem;
-    position: relative;
-    left: 88%;
+    position: fixed;
+    left: 66%;
+
 }
 
 .modal-content {
@@ -172,7 +173,7 @@
 @media (max-width: 768px) {
     .header-carousel .owl-carousel-item {
         position: relative;
-        min-height: 500px;
+        min-height: 200px;
     }
     
     .header-carousel .owl-carousel-item img {

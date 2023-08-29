@@ -115,6 +115,7 @@
     <Content Include="Asset\img\carousel-1.jpg" />
     <Content Include="Asset\img\carousel-2.jpg" />
     <Content Include="Asset\img\carousel-3.jpg" />
+    <Content Include="Asset\img\favicon.ico" />
     <Content Include="Asset\img\feature.jpg" />
     <Content Include="Asset\img\footer.jpg" />
     <Content Include="Asset\img\portfolio-1.jpg" />
@@ -324,6 +325,13 @@
     <Content Include="Asset\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Asset\scss\bootstrap\scss\_variables.scss" />
     <Content Include="ERROR404.aspx" />
+    <Content Include="PopUpTest.aspx" />
+    <Content Include="Posts\Post1.jpg" />
+    <Content Include="Posts\Post2.jpg" />
+    <Content Include="Posts\Post3.jpg" />
+    <Content Include="Posts\Post4.jpg" />
+    <Content Include="Posts\Post5.jpg" />
+    <Content Include="Posts\Post6.jpg" />
     <Content Include="project.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Team.aspx" />
@@ -342,6 +350,8 @@
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="Admin\AdminMaster.Master" />
     <Content Include="Admin\AdminNested.master" />
+    <Content Include="View.aspx" />
+    <Content Include="Workshop_view.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -448,6 +458,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PopUpTest.aspx.cs">
+      <DependentUpon>PopUpTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PopUpTest.aspx.designer.cs">
+      <DependentUpon>PopUpTest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="project.aspx.cs">
       <DependentUpon>project.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,6 +508,13 @@
     <Compile Include="TestProfile.aspx.designer.cs">
       <DependentUpon>TestProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -526,10 +550,20 @@
     <Compile Include="Quote.aspx.designer.cs">
       <DependentUpon>Quote.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Workshop_view.aspx.cs">
+      <DependentUpon>Workshop_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workshop_view.aspx.designer.cs">
+      <DependentUpon>Workshop_view.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Covers\" />
+    <Folder Include="HandyManImages\" />
     <Folder Include="obj\" />
+    <Folder Include="Workshop\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
