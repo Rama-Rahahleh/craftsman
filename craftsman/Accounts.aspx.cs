@@ -53,17 +53,21 @@ namespace craftsman
                     SqlDataReader dr=cmd.ExecuteReader();
                     if(dr.HasRows==true)
                     {
-                        while(dr.Read())
+                        Session["type"] = dr["USER_TYPE"];
+                        Session["id"] = dr["USER_ID"];
+                        while (dr.Read())
                         {
-                            
-                            if (dr["USER_TYPE"].ToString() == "1") {
-                                Response.Redirect("Admin/Control.aspx");
+                            switch (dr["USER_TYPE"].ToString()) {
+                                case "1":
+                                    Response.Redirect("Admin/Control.aspx");
+                                    break;
+                                case "2":
+                                    Response.Redirect("Workshop_view.aspx");
+                                    break;
+                                case "3":
+                                    Response.Redirect("Default.aspx");
+                                    break;
                             }
-                            else if (dr["USER_TYPE"].ToString() == "2")
-                            {
-
-                            }
-                            
                         }
                     }else if (cmd.Parameters["@msg"].Value != DBNull.Value)
                     {
@@ -71,14 +75,10 @@ namespace craftsman
 
                         if (result == -1)
                         {
-                            //msg.InnerText= $"Invalid Email or Password.";
-                            //ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
-                            ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('success','Sign up successful!');", true);
+                            ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('error','Invalid Email or Password.');", true);
                         }
                         else if (result == 0)
-                            //    msg.InnerText = $"Email is not Found";
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
-                        //ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('error','Email Not Found');", true);
+                        ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('error','Email Not Found');", true);
                     }
                 }
                 con.Close();
@@ -111,25 +111,15 @@ namespace craftsman
                     int result = Convert.ToInt32(com.Parameters["@msg"].Value);
                     if (result == 1)
                     {
-
-                        //msg.InnerText = "Sign up successful!";
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                         ScriptManager.RegisterStartupScript(UpdatePanel1,UpdatePanel1.GetType(),"CallMyFunction", "showContent('success','Sign up successful!');",true);
                     }
                     else if (result == -1)
                     {
-
-                        //msg.InnerText = "Can't accept email";
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "OpenPopUp();", true);
                         ScriptManager.RegisterStartupScript(UpdatePanel1, UpdatePanel1.GetType(), "CallMyFunction", "showContent('error','Cant't accept email');", true);
                     }
-
-
                     con.Close();
                 }
             }
-
-            
             email.Text = string.Empty;
             phone.Text = string.Empty;
             username.Text = string.Empty;

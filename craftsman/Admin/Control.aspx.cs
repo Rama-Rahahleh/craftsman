@@ -16,6 +16,10 @@ namespace craftsman.Admin
         string ConnectionString = ConfigurationManager.ConnectionStrings["craftman"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((string)Session["type"] != "1")
+            {
+                Response.Redirect("~/default.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 FillAccountGrid();
@@ -30,7 +34,7 @@ namespace craftsman.Admin
                 {
                     con.Open();
                     command.CommandType = System.Data.CommandType.Text;
-                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlDataAdapter adapter;
                     DataSet ds = new DataSet();
                     adapter = new SqlDataAdapter(command);
                     adapter.Fill(ds);

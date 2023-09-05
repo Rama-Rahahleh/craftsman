@@ -28,22 +28,22 @@ namespace craftsman
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                string query = "SELECT Cover FROM Workshops WHERE WORKSHOP_ID = 1";
+                string query = "SELECT Cover FROM Workshops WHERE User_ID = @id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     // Assuming you have a CoverID value to retrieve the cover
-                    command.Parameters.AddWithValue("@WORKSHOP_ID", 1);
+                    command.Parameters.AddWithValue("@id", (int)Session["id"]);
 
                     connection.Open();
                     string coverFilePath = (string)command.ExecuteScalar();
                     // Set the ImageUrl of the cover image control
                     Image_cover.ImageUrl = coverFilePath;
                 }
-                query = "SELECT Profile FROM Workshops WHERE WORKSHOP_ID = 1";
+                query = "SELECT Profile FROM Workshops WHERE User_ID = @id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     // Assuming you have a CoverID value to retrieve the cover
-                    command.Parameters.AddWithValue("@WORKSHOP_ID", 1);
+                    command.Parameters.AddWithValue("@id", (int)Session["id"]);
 
                     string coverFilePath = (string)command.ExecuteScalar();
                     // Set the ImageUrl of the cover image control
