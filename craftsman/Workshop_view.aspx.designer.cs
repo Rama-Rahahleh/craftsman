@@ -33,6 +33,15 @@ namespace craftsman
         protected global::System.Web.UI.WebControls.Image Image_cover;
 
         /// <summary>
+        /// hyperlink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperlink;
+
+        /// <summary>
         /// repeaterPosts control.
         /// </summary>
         /// <remarks>

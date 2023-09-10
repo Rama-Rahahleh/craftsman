@@ -83,12 +83,24 @@
     </div>
     <!-- Topbar End -->
 
+            <form runat="server" >
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
         <a href="Default.aspx" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary">HerAfy</h2>
         </a>
+        <div class="input-group">
+            
+            <asp:TextBox runat="server" ID="SearchBar" CssClass="form-control-sm" onkeypress="return HandleKeyPress(event)" placeholder="Search"></asp:TextBox>
+  <div class="input-group-append">
+    <asp:DropDownList runat="server" Width="100" Height="100%" CssClass="btn-sm btn-outline-secondary dropdown-toggle" ID="Search_Category">
+
+    </asp:DropDownList>
+      <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" style="display: none;" />
+  </div>
+</div>
+                
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -111,11 +123,10 @@
                 </div>
                 
             </div>
-            <asp:HyperLink  NavigateUrl="" ID="link1" runat="server" CssClass="btn btn-primary py-4 px-lg-5 d-none d-lg-block" Text="Start now"><i class="fa fa-arrow-right ms-3"></i></asp:HyperLink>
+            <asp:HyperLink  NavigateUrl="Accounts.aspx" ID="link1" runat="server" CssClass="btn btn-primary py-4 px-lg-5 d-none d-lg-block" Text="Start now"><i class="fa fa-arrow-right ms-3"></i></asp:HyperLink>
         </div>
     </nav>
     <!-- Navbar End -->
-    <form runat="server" >
 <!-- Spinner Start -->
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
@@ -182,7 +193,16 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+<%--    Search JS--%>
+    <script type="text/javascript">
+    function HandleKeyPress(e) {
+        var key = e.keyCode || e.which;
+        if (key === 13) { // Check if Enter key is pressed
+            e.preventDefault(); // Prevent form submission (prevents page reload)
+            document.getElementById('<%= SearchButton.ClientID %>').click(); // Programmatically click the search button
+        }
+    }
+    </script>
 
     <!-- JavaScript Libraries -->
   

@@ -338,6 +338,7 @@
     <Content Include="Posts\Post5.jpg" />
     <Content Include="Posts\Post6.jpg" />
     <Content Include="project.aspx" />
+    <Content Include="SearchResult.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Team.aspx" />
     <Content Include="Testimonial.aspx" />
@@ -474,6 +475,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EncryptionHelper.cs" />
     <Compile Include="Feature.aspx.cs">
       <DependentUpon>Feature.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -499,6 +501,13 @@
       <DependentUpon>project.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchResult.aspx.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchResult.aspx.designer.cs">
+      <DependentUpon>SearchResult.aspx</DependentUpon>
+    </Compile>
     <Compile Include="service.aspx.cs">
       <DependentUpon>service.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

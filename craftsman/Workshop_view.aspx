@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Workshop_view.aspx.cs" Inherits="craftsman.Workshop_view" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <style>
         /*view css*/
@@ -82,7 +85,7 @@
             margin: auto;
             margin-top: 30px;
             position: relative;
-            top:15%;
+            top: 15%;
         }
 
         .image-modal-popup .description {
@@ -117,10 +120,10 @@
     --tertiary: 201, 96%, 71%;*/
             --background: 240, 4%, 3%;
             /*--text-primary: 0, 0%, 100%;*/
-     /*Colors*/ 
-    --black: 0, 0%, 0%;
-    --white: 0, 0%, 100%;
-    /*--grooble: 233, 3%, 48%;
+            /*Colors*/
+            --black: 0, 0%, 0%;
+            --white: 0, 0%, 100%;
+            /*--grooble: 233, 3%, 48%;
     --red: 347, 84%, 68%;
     --orange: 23, 84%, 68%;
     --yellow: 52, 84%, 68%;
@@ -129,19 +132,19 @@
     --blue: 219, 84%, 68%;
     --purple: 279, 84%, 68%;
     --pink: 312, 84%, 68%;*/
-             --gradient: linear-gradient(90deg, hsla(var(--primary), 1) 0%, hsla(var(--secondary), 1) 50%, hsla(var(--tertiary), 1) 100%);
-             --heading-large: 5.6rem;
+            --gradient: linear-gradient(90deg, hsla(var(--primary), 1) 0%, hsla(var(--secondary), 1) 50%, hsla(var(--tertiary), 1) 100%);
+            --heading-large: 5.6rem;
             --heading-medium: 3.6rem;
             --heading-small: 2.4rem;
             --paragraph: 1.2rem;
-             --transition-main: .175, .685, .32;
-             --font-main: "Poppins";
+            --transition-main: .175, .685, .32;
+            --font-main: "Poppins";
         }
 
 
         button {
             padding: .8em 1.2em;
-            color:#AB7442;
+            color: #AB7442;
             background-color: hsl(var(--background));
             border: 1px solid hsl(var(--white));
             font-size: var(--paragraph);
@@ -582,7 +585,7 @@
                         <div>
                             <button type="button" class="btn-primary-gray button flexbox">
                                 <ion-icon name="heart-outline"></ion-icon>
-                                Follow<div class="btn-primary"></div>
+                                Add Posts<div class="btn-primary"></div>
                             </button>
                         </div>
                     </div>
@@ -605,22 +608,24 @@
                     <h3>Profile Posts</h3>
                     <div class="profile-page-inner">
                         <div class="modal-content-wrapper">
-                            <asp:Repeater ID="repeaterPosts" runat="server">
-                                <ItemTemplate>
-                                    <%--<div class="img-w ">
+                            <asp:HyperLink runat="server" ID="hyperlink">
+                                <asp:Repeater ID="repeaterPosts" runat="server">
+                                    <ItemTemplate>
+                                        <%--<div class="img-w ">
                                         <%--<img src="https://images.unsplash.com/photo-1485766410122-1b403edb53db?dpr=1&auto=format&fit=crop&w=1500&h=846&q=80&cs=tinysrgb&crop=" alt="" />
                                         <div class="profile-page-item flexbox overflow-hidden shadow-lg">
                                             <img class="profile-page-item-image " src="<%# Eval("FILE_PATH") %>" alt="">
                                         </div>
                                     </div>--%>
-                                    <div class="image-modal-content ">
-                                        <img src="<%# Eval("FILE_PATH") %>"
-                                            data-description="<%# Eval("DESCREPTION") %>" alt="Vanilla JS Modal">
-                                    </div>
+                                        <div class="image-modal-content ">
+                                            <img src="<%# Eval("FILE_PATH") %>"
+                                                data-description="<%# Eval("DESCREPTION") %>" alt="Vanilla JS Modal">
+                                        </div>
 
 
-                                </ItemTemplate>
-                            </asp:Repeater>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </asp:HyperLink>
                         </div>
                     </div>
 
@@ -630,7 +635,7 @@
         </div>
         <div class="image-modal-popup">
             <div class="wrapper">
-<%--                <span>&times;</span>--%>
+                <%--                <span>&times;</span>--%>
                 <img src="" alt="Image Modal">
                 <div class="description">
                     <h1>This is placeholder content</h1>

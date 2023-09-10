@@ -7,21 +7,37 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace craftsman
 {
     public partial class Workshop_view : System.Web.UI.Page
     {
         string ConnectionString = ConfigurationManager.ConnectionStrings["craftman"].ConnectionString;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = 2;
             if (!IsPostBack)
             {
+                if (Request.QueryString["id"] != null)
+                {
+                    string encryptedId = Request.QueryString["id"];
+                    id = EncryptionHelper.Decrypt(encryptedId);
+
+                    // Use the decrypted workshopId to fetch workshop details from the database
+                    // Populate the details on your WorkshopDetails.aspx page
+                }
+                Session["id"] = 2;
                 // Retrieve and display the cover picture
                 DisplayCoverPicture();
 
                 // Load page posts from the database and bind them to the repeater
                 BindPagePosts();
+                
+                string encryptedID = EncryptionHelper.Encrypt(id);
+                string url = HttpUtility.UrlEncode(encryptedID);
+                hyperlink.NavigateUrl = $"Workshop_view.aspx?id={url}";
+                
             }
         }
         private void DisplayCoverPicture()
